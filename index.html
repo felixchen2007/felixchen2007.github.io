@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Felix Chen — engineering portfolio featuring electrical systems, embedded design, circuit prototyping, and engineering projects." />
+  <title>Felix Chen | Engineering Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #f6f8f9;
+      --paper: #ffffff;
+      --ink: #132025;
+      --muted: #5c6b73;
+      --soft: #dfe8ec;
+      --soft-2: #eef4f6;
+      --accent: #2b7a8b;
+      --accent-dark: #145568;
+      --hero: #111b20;
+      --shadow: 0 18px 45px rgba(17, 27, 32, 0.10);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      padding: 10px 14px;
+      background: var(--paper);
+      color: var(--ink);
+      border-radius: 999px;
+      z-index: 999;
+    }
+
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      transition: background 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    .site-header.scrolled {
+      background: rgba(246, 248, 249, 0.86);
+      backdrop-filter: blur(18px);
+      border-bottom-color: rgba(19, 32, 37, 0.08);
+      box-shadow: 0 8px 24px rgba(19, 32, 37, 0.06);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 760;
+      letter-spacing: -0.03em;
+      color: var(--paper);
+      transition: color 220ms ease;
+    }
+
+    .site-header.scrolled .brand {
+      color: var(--ink);
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #ffffff, #b7dce5);
+      color: var(--hero);
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      font-weight: 900;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .site-header.scrolled .brand-mark {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: white;
+      box-shadow: 0 10px 22px rgba(43, 122, 139, 0.22);
+    }
+
+    .brand-text {
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.09);
+      border-radius: 999px;
+      backdrop-filter: blur(14px);
+    }
+
+    .site-header.scrolled .nav-links {
+      background: rgba(255, 255, 255, 0.80);
+      border-color: rgba(19, 32, 37, 0.08);
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 14px;
+      font-weight: 650;
+      padding: 9px 13px;
+      border-radius: 999px;
+      transition: background 180ms ease, color 180ms ease;
+    }
+
+    .site-header.scrolled .nav-links a {
+      color: #2e3a40;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--ink);
+    }
+
+    .site-header.scrolled .nav-links a:hover,
+    .site-header.scrolled .nav-links a.active {
+      background: var(--ink);
+      color: white;
+    }
+
+    .mobile-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.13);
+      color: white;
+      cursor: pointer;
+    }
+
+    .site-header.scrolled .mobile-toggle {
+      background: white;
+      color: var(--ink);
+      box-shadow: 0 10px 20px rgba(19, 32, 37, 0.08);
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding: 140px 22px 80px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 24%, rgba(79, 170, 190, 0.24), transparent 32%),
+        radial-gradient(circle at 84% 16%, rgba(255, 255, 255, 0.12), transparent 26%),
+        linear-gradient(135deg, #10191d 0%, #16252b 46%, #263b44 100%);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 560px;
+      height: 980px;
+      top: -260px;
+      transform: rotate(28deg);
+      border-radius: 80px;
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .hero::before {
+      left: 18%;
+    }
+
+    .hero::after {
+      right: 4%;
+      background: rgba(255, 255, 255, 0.075);
+    }
+
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      opacity: 0.16;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to bottom, black, transparent 86%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: center;
+      gap: 56px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #7bdff2;
+      box-shadow: 0 0 0 7px rgba(123, 223, 242, 0.12);
+    }
+
+    .hero h1 {
+      margin-top: 24px;
+      max-width: 760px;
+      font-size: clamp(48px, 7.4vw, 92px);
+      line-height: 0.94;
+      letter-spacing: -0.075em;
+      font-weight: 820;
+    }
+
+    .hero h1 span {
+      color: #b7dce5;
+    }
+
+    .hero-copy {
+      margin-top: 24px;
+      max-width: 660px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: clamp(17px, 2.1vw, 21px);
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 13px 18px;
+      border-radius: 999px;
+      font-weight: 760;
+      border: 1px solid transparent;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: white;
+      color: var(--hero);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.20);
+    }
+
+    .btn-ghost {
+      color: white;
+      border-color: rgba(255, 255, 255, 0.24);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 42px;
+      max-width: 680px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(14px);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 27px;
+      letter-spacing: -0.04em;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 2px;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 520px;
+      border-radius: 36px;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.26);
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+    }
+
+    .device-card {
+      height: 100%;
+      min-height: 476px;
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at 50% 15%, rgba(123, 223, 242, 0.25), transparent 36%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.06));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .device-card::before {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      right: -76px;
+      top: -48px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+    }
+
+    .circuit-board {
+      position: relative;
+      height: 260px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(17, 27, 32, 0.98), rgba(26, 58, 66, 0.92));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    }
+
+    .trace {
+      position: absolute;
+      background: rgba(123, 223, 242, 0.54);
+      border-radius: 999px;
+      box-shadow: 0 0 18px rgba(123, 223, 242, 0.28);
+    }
+
+    .trace.t1 { width: 190px; height: 4px; left: 42px; top: 62px; }
+    .trace.t2 { width: 4px; height: 118px; left: 228px; top: 62px; }
+    .trace.t3 { width: 120px; height: 4px; right: 56px; top: 178px; }
+    .trace.t4 { width: 4px; height: 88px; right: 56px; top: 92px; }
+    .trace.t5 { width: 90px; height: 4px; left: 70px; bottom: 58px; }
+
+    .chip {
+      position: absolute;
+      width: 88px;
+      height: 88px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 18px;
+      background: #d9f2f6;
+      color: var(--hero);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+    }
+
+    .node {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: white;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.42);
+    }
+
+    .n1 { left: 34px; top: 55px; }
+    .n2 { right: 48px; top: 85px; }
+    .n3 { right: 48px; top: 171px; }
+    .n4 { left: 154px; bottom: 51px; }
+
+    .terminal-line {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(0, 0, 0, 0.20);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 13px;
+    }
+
+    .terminal-line span {
+      display: block;
+      margin-top: 8px;
+      color: #b7dce5;
+    }
+
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 100px 22px;
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 0.84fr 1.16fr;
+      gap: 48px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .kicker {
+      color: var(--accent-dark);
+      font-weight: 860;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 13px;
+    }
+
+    .section h2 {
+      margin-top: 10px;
+      font-size: clamp(34px, 5.2vw, 58px);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 680px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.72fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .panel {
+      background: var(--paper);
+      border: 1px solid var(--soft);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .about-panel {
+      padding: 34px;
+    }
+
+    .about-panel p {
+      color: #35454d;
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+
+    .about-panel p:last-child {
+      margin-bottom: 0;
+    }
+
+    .focus-panel {
+      padding: 28px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(238, 244, 246, 0.82)),
+        radial-gradient(circle at 80% 0%, rgba(43, 122, 139, 0.18), transparent 40%);
+    }
+
+    .focus-list {
+      margin-top: 18px;
+      display: grid;
+      gap: 12px;
+      list-style: none;
+    }
+
+    .focus-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(223, 232, 236, 0.9);
+      border-radius: 18px;
+      color: #3d4c53;
+      font-weight: 620;
+    }
+
+    .focus-list li::before {
+      content: "";
+      flex: 0 0 10px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 8px;
+      box-shadow: 0 0 0 6px rgba(43, 122, 139, 0.10);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 430px;
+      overflow: hidden;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 58px rgba(17, 27, 32, 0.14);
+    }
+
+    .project-visual {
+      min-height: 170px;
+      padding: 18px;
+      background: linear-gradient(135deg, #17242a, #2e5864);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-visual.light {
+      background: linear-gradient(135deg, #e9f2f5, #c9dce2);
+    }
+
+    .project-visual::after {
+      content: "";
+      position: absolute;
+      inset: auto -30px -75px auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .visual-label {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      color: white;
+      font-size: 13px;
+      font-weight: 780;
+    }
+
+    .project-visual.light .visual-label {
+      background: rgba(19, 32, 37, 0.08);
+      color: var(--ink);
+    }
+
+    .mini-diagram {
+      position: relative;
+      z-index: 2;
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .mini-block {
+      height: 74px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .project-visual.light .mini-block {
+      background: rgba(255, 255, 255, 0.72);
+      border-color: rgba(19, 32, 37, 0.06);
+    }
+
+    .project-body {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .project-meta {
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      font-weight: 850;
+      font-size: 12px;
+    }
+
+    .project-body h3 {
+      margin-top: 8px;
+      font-size: 25px;
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+    }
+
+    .project-body p {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .project-footer {
+      margin-top: auto;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag {
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: var(--soft-2);
+      color: #31505a;
+      font-size: 12px;
+      font-weight: 740;
+    }
+
+    .card-link {
+      color: var(--accent-dark);
+      font-weight: 830;
+      white-space: nowrap;
+    }
+
+    .skills-wrap {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 22px;
+    }
+
+    .skill-panel {
+      padding: 30px;
+    }
+
+    .skill-panel h3 {
+      font-size: 26px;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .skill-panel p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .skill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      padding: 10px 13px;
+      border-radius: 999px;
+      background: var(--soft-2);
+      border: 1px solid var(--soft);
+      color: #33484f;
+      font-weight: 720;
+      font-size: 14px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      padding: 18px;
+      border-left: 4px solid var(--accent);
+      background: white;
+      border-radius: 0 18px 18px 0;
+      border-top: 1px solid var(--soft);
+      border-right: 1px solid var(--soft);
+      border-bottom: 1px solid var(--soft);
+    }
+
+    .timeline-item strong {
+      display: block;
+      font-size: 17px;
+    }
+
+    .timeline-item span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .build-log-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .log-card {
+      padding: 24px;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 200ms ease;
+    }
+
+    .log-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .log-date {
+      color: var(--accent-dark);
+      font-size: 13px;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .log-card h3 {
+      margin-top: 14px;
+      font-size: 22px;
+      line-height: 1.18;
+      letter-spacing: -0.035em;
+    }
+
+    .log-card p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .log-card a {
+      margin-top: auto;
+      color: var(--accent-dark);
+      font-weight: 840;
+    }
+
+    .contact-section {
+      padding-bottom: 120px;
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1fr 0.75fr;
+      gap: 24px;
+      padding: 34px;
+      background:
+        linear-gradient(145deg, #ffffff, #f2f7f8),
+        radial-gradient(circle at 100% 0%, rgba(43, 122, 139, 0.20), transparent 38%);
+    }
+
+    .contact-panel h2 {
+      margin-bottom: 18px;
+    }
+
+    .contact-panel p {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 680px;
+    }
+
+    .contact-actions {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact-card-small {
+      padding: 24px;
+      border-radius: 22px;
+      background: var(--ink);
+      color: white;
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 240px;
+    }
+
+    .contact-card-small p {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 15px;
+    }
+
+    .email-button {
+      width: 100%;
+      margin-top: 20px;
+      border: 0;
+      border-radius: 999px;
+      min-height: 46px;
+      background: white;
+      color: var(--ink);
+      font-weight: 820;
+      cursor: pointer;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--soft);
+      padding: 28px 22px;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 620ms ease, transform 620ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 920px) {
+      .hero-inner,
+      .section-header,
+      .about-grid,
+      .skills-wrap,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        min-height: auto;
+      }
+
+      .device-card {
+        min-height: 420px;
+      }
+
+      .project-grid,
+      .build-log-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        padding: 14px 16px;
+      }
+
+      .brand-text {
+        font-size: 16px;
+      }
+
+      .mobile-toggle {
+        display: grid;
+        place-items: center;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 16px;
+        right: 16px;
+        display: none;
+        flex-direction: column;
+        border-radius: 24px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.96);
+        border-color: rgba(19, 32, 37, 0.08);
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a,
+      .site-header.scrolled .nav-links a {
+        width: 100%;
+        text-align: center;
+        color: var(--ink);
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active,
+      .site-header.scrolled .nav-links a:hover,
+      .site-header.scrolled .nav-links a.active {
+        background: var(--ink);
+        color: white;
+      }
+
+      .hero {
+        padding-top: 118px;
+      }
+
+      .hero-actions,
+      .hero-stats,
+      .contact-actions {
+        align-items: stretch;
+      }
+
+      .hero-actions .btn,
+      .contact-actions .btn {
+        width: 100%;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 76px 18px;
+      }
+
+      .about-panel,
+      .focus-panel,
+      .contact-panel {
+        padding: 24px;
+      }
+
+      .project-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#home" class="brand" aria-label="Felix Chen home">
+        <span class="brand-mark">FC</span>
+        <span class="brand-text">felixchen.dev</span>
+      </a>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation" aria-expanded="false">
+        ☰
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#build-log">Build Log</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="grid-overlay" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <div class="hero-copy-wrap reveal">
+        <div class="eyebrow"><span class="pulse"></span> Engineering Portfolio</div>
+        <h1>Hi, I’m Felix — I build at the edge of <span>hardware</span> and code.</h1>
+        <p class="hero-copy">
+          UBC engineering student interested in electrical systems, embedded design, circuit prototyping,
+          and practical projects where tiny technical details change how the whole system behaves.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View Projects →</a>
+          <a href="assets/Felix_Chen_Resume.pdf" class="btn btn-ghost" target="_blank" rel="noreferrer">Resume</a>
+          <a href="#contact" class="btn btn-ghost">Contact Me</a>
+        </div>
+
+        <div class="hero-stats" aria-label="Portfolio highlights">
+          <div class="stat"><strong>5+</strong><span>featured projects</span></div>
+          <div class="stat"><strong>ECE</strong><span>focus area</span></div>
+          <div class="stat"><strong>C + HW</strong><span>tools I enjoy</span></div>
+        </div>
+      </div>
+
+      <div class="hero-card reveal" aria-label="Stylized circuit board graphic">
+        <div class="device-card">
+          <div>
+            <div class="circuit-board">
+              <div class="trace t1"></div>
+              <div class="trace t2"></div>
+              <div class="trace t3"></div>
+              <div class="trace t4"></div>
+              <div class="trace t5"></div>
+              <div class="node n1"></div>
+              <div class="node n2"></div>
+              <div class="node n3"></div>
+              <div class="node n4"></div>
+              <div class="chip">FC</div>
+            </div>
+            <div class="terminal-line">
+              > initializing_portfolio()
+              <span>status: building cleaner systems, one wire at a time</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <section class="section" id="about">
+      <div class="section-header reveal">
+        <div>
+          <p class="kicker">About</p>
+          <h2>Curious about systems that actually have to work.</h2>
+        </div>
+        <p class="section-intro">
+          I like engineering work that is hands-on: wiring something, testing it, realizing it does not behave
+          the way I expected, then tracing the issue until the design finally makes sense.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="panel about-panel reveal">
+          <p>
+            My interest in electrical engineering grew from projects involving Arduino systems, circuit prototyping,
+            soldering, wiring, and small-scale hardware builds. I enjoy the moment where a design stops being only a
+            diagram and starts becoming a real physical system with constraints, noise, failure points, and tradeoffs.
+          </p>
+          <p>
+            I am especially interested in embedded systems, electronics, PCB design, and engineering projects that
+            combine software logic with physical behavior. This portfolio collects the projects, build notes, and
+            technical work that shaped those interests.
+          </p>
+        </div>
+
+        <aside class="panel focus-panel reveal">
+          <p class="kicker">Current Focus</p>
+          <ul class="focus-list">
+            <li>Learning more electrical and computer engineering fundamentals</li>
+            <li>Building cleaner Arduino and embedded systems projects</li>
+            <li>Designing more custom PCB and circuit-based projects</li>
+            <li>Improving technical communication through reports, diagrams, and build logs</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-header reveal">
+        <div>
+          <p class="kicker">Selected Work</p>
+          <h2>Projects with wires, models, tradeoffs, and occasional chaos.</h2>
+        </div>
+        <p class="section-intro">
+          Each project is written to show what the system did, what I personally worked on, and what engineering
+          problem made it interesting.
+        </p>
+      </div>
+
+      <div class="project-grid">
+        <article class="panel project-card reveal">
+          <div class="project-visual">
+            <span class="visual-label">Embedded System</span>
+            <div class="mini-diagram">
+              <div class="mini-block"></div><div class="mini-block"></div><div class="mini-block"></div>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-meta">APSC 101 · Arduino</p>
+            <h3>Arduino Claw Project</h3>
+            <p>
+              Built and programmed an Arduino-controlled claw system. My focus was connecting components,
+              debugging input/output behavior, and adjusting code so the mechanism responded reliably.
+            </p>
+            <div class="project-footer">
+              <div class="tags">
+                <span class="tag">Arduino</span><span class="tag">C/C++</span><span class="tag">Debugging</span>
+              </div>
+              <a class="card-link" href="#contact">Details →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel project-card reveal">
+          <div class="project-visual light">
+            <span class="visual-label">Electrical Build</span>
+            <div class="mini-diagram">
+              <div class="mini-block"></div><div class="mini-block"></div><div class="mini-block"></div>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-meta">Kwantlen Science Challenge</p>
+            <h3>Battery-Powered Vehicle Electrical System</h3>
+            <p>
+              Worked on the electrical side of a competition vehicle, including wiring, soldering, component layout,
+              and keeping the system operating under load. The project taught me how much clean integration matters.
+            </p>
+            <div class="project-footer">
+              <div class="tags">
+                <span class="tag">Soldering</span><span class="tag">Circuits</span><span class="tag">Power</span>
+              </div>
+              <a class="card-link" href="#contact">Details →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel project-card reveal">
+          <div class="project-visual light">
+            <span class="visual-label">Systems Modeling</span>
+            <div class="mini-diagram">
+              <div class="mini-block"></div><div class="mini-block"></div><div class="mini-block"></div>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-meta">APSC 101 · Design Project</p>
+            <h3>Rainwater Harvesting System Model</h3>
+            <p>
+              Modeled a remote household water system using rainfall data, water demand assumptions, stakeholder
+              criteria, pump behavior, and Excel-based engineering calculations.
+            </p>
+            <div class="project-footer">
+              <div class="tags">
+                <span class="tag">Excel</span><span class="tag">Hydraulics</span><span class="tag">WDM</span>
+              </div>
+              <a class="card-link" href="#contact">Details →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel project-card reveal">
+          <div class="project-visual">
+            <span class="visual-label">Programming</span>
+            <div class="mini-diagram">
+              <div class="mini-block"></div><div class="mini-block"></div><div class="mini-block"></div>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-meta">Coursework · C</p>
+            <h3>C Programming Practice</h3>
+            <p>
+              Small programming projects focused on arrays, strings, file I/O, functions, memory behavior,
+              and algorithmic problem solving. I use these to build cleaner debugging habits.
+            </p>
+            <div class="project-footer">
+              <div class="tags">
+                <span class="tag">C</span><span class="tag">Algorithms</span><span class="tag">File I/O</span>
+              </div>
+              <a class="card-link" href="#contact">Details →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel project-card reveal">
+          <div class="project-visual">
+            <span class="visual-label">Sustainability</span>
+            <div class="mini-diagram">
+              <div class="mini-block"></div><div class="mini-block"></div><div class="mini-block"></div>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-meta">APSC 101 · Technical Report</p>
+            <h3>Mining Recommendation Analysis</h3>
+            <p>
+              Evaluated copper deposit options using a weighted decision matrix, sustainability criteria,
+              life-cycle thinking, and stakeholder impacts to recommend a development path.
+            </p>
+            <div class="project-footer">
+              <div class="tags">
+                <span class="tag">WDM</span><span class="tag">SLCA</span><span class="tag">Technical Writing</span>
+              </div>
+              <a class="card-link" href="#contact">Details →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel project-card reveal">
+          <div class="project-visual light">
+            <span class="visual-label">Circuits</span>
+            <div class="mini-diagram">
+              <div class="mini-block"></div><div class="mini-block"></div><div class="mini-block"></div>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-meta">Lab Work · Circuits</p>
+            <h3>Circuit Prototyping & Measurement</h3>
+            <p>
+              Hands-on lab work involving circuit behavior, measurement hardware, oscilloscopes, troubleshooting,
+              and connecting theoretical circuit ideas to physical results.
+            </p>
+            <div class="project-footer">
+              <div class="tags">
+                <span class="tag">Circuits</span><span class="tag">Oscilloscope</span><span class="tag">Testing</span>
+              </div>
+              <a class="card-link" href="#contact">Details →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-header reveal">
+        <div>
+          <p class="kicker">Skills</p>
+          <h2>Tools I use to turn ideas into working systems.</h2>
+        </div>
+        <p class="section-intro">
+          This section is intentionally practical: tools, habits, and technical areas that appear across my projects.
+        </p>
+      </div>
+
+      <div class="skills-wrap">
+        <div class="panel skill-panel reveal">
+          <h3>Technical Skills</h3>
+          <p>Replace or expand this list as your projects grow.</p>
+          <div class="skill-cloud">
+            <span class="skill">C Programming</span>
+            <span class="skill">Arduino</span>
+            <span class="skill">Circuit Prototyping</span>
+            <span class="skill">Soldering</span>
+            <span class="skill">Wiring</span>
+            <span class="skill">Excel Modeling</span>
+            <span class="skill">MATLAB</span>
+            <span class="skill">Technical Writing</span>
+            <span class="skill">Debugging</span>
+            <span class="skill">PCB Design</span>
+          </div>
+        </div>
+
+        <div class="panel skill-panel reveal">
+          <h3>How I Work</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <strong>Prototype early</strong>
+              <span>Build small versions quickly so problems show up before the final design.</span>
+            </div>
+            <div class="timeline-item">
+              <strong>Debug with evidence</strong>
+              <span>Use measurements, code output, diagrams, and step-by-step checks instead of guessing.</span>
+            </div>
+            <div class="timeline-item">
+              <strong>Explain tradeoffs</strong>
+              <span>Document why a design choice works, what it costs, and what I would improve next.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="build-log">
+      <div class="section-header reveal">
+        <div>
+          <p class="kicker">Build Log</p>
+          <h2>Notes that show the learning, not just the final product.</h2>
+        </div>
+        <p class="section-intro">
+          Use this area for short reflections, teardown notes, debugging stories, and project updates. It makes a student
+          portfolio feel alive instead of frozen in resume-speak.
+        </p>
+      </div>
+
+      <div class="build-log-grid">
+        <article class="panel log-card reveal">
+          <p class="log-date">Coming Soon</p>
+          <h3>What I learned from my first PCB-style power project</h3>
+          <p>A short post about power delivery, layout decisions, and what I would redesign.</p>
+          <a href="#contact">Draft post →</a>
+        </article>
+
+        <article class="panel log-card reveal">
+          <p class="log-date">Coming Soon</p>
+          <h3>Debugging an Arduino input problem</h3>
+          <p>A practical breakdown of how one small signal issue can change the behavior of a system.</p>
+          <a href="#contact">Draft post →</a>
+        </article>
+
+        <article class="panel log-card reveal">
+          <p class="log-date">Coming Soon</p>
+          <h3>How I organize wiring in small builds</h3>
+          <p>A reflection on clean layout, labeling, testing, and making projects easier to repair.</p>
+          <a href="#contact">Draft post →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="panel contact-panel reveal">
+        <div>
+          <p class="kicker">Contact</p>
+          <h2>Let’s connect.</h2>
+          <p>
+            I am interested in engineering design teams, electrical engineering opportunities, hardware projects,
+            embedded systems, and student-led technical work.
+          </p>
+
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="mailto:your.email@example.com">Email Me</a>
+            <a class="btn" style="background: var(--ink); color: white;" href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn" style="background: var(--soft-2); color: var(--ink);" href="https://github.com/YOUR-GITHUB" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+
+        <aside class="contact-card-small">
+          <div>
+            <p class="kicker" style="color: #b7dce5;">Quick Info</p>
+            <p style="margin-top: 12px;">
+              Replace the email, LinkedIn, GitHub, resume path, and project links before publishing.
+            </p>
+          </div>
+          <button class="email-button" id="copyEmail" type="button">Copy Email</button>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© <span id="year"></span> Felix Chen. Built with HTML, CSS, and JavaScript.</p>
+      <p>Designed for GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+    const navLinks = document.getElementById('navLinks');
+    const mobileToggle = document.getElementById('mobileToggle');
+    const year = document.getElementById('year');
+    const copyEmail = document.getElementById('copyEmail');
+    const email = 'your.email@example.com';
+
+    year.textContent = new Date().getFullYear();
+
+    const updateHeader = () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    };
+
+    updateHeader();
+    window.addEventListener('scroll', updateHeader);
+
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      mobileToggle.textContent = isOpen ? '×' : '☰';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileToggle.textContent = '☰';
+      });
+    });
+
+    copyEmail.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(email);
+        copyEmail.textContent = 'Copied!';
+        setTimeout(() => copyEmail.textContent = 'Copy Email', 1400);
+      } catch {
+        window.location.href = `mailto:${email}`;
+      }
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    const sections = [...document.querySelectorAll('section[id]')];
+    const navAnchors = [...document.querySelectorAll('.nav-links a')];
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navAnchors.forEach(anchor => {
+            anchor.classList.toggle('active', anchor.getAttribute('href') === `#${entry.target.id}`);
+          });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+
+    sections.forEach(section => sectionObserver.observe(section));
+  </script>
+</body>
+</html>
