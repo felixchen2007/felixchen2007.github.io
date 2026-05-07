@@ -1,51 +1,48 @@
 :root {
-    left: 16px;
-    right: 16px;
-    display: none;
-    flex-direction: column;
-    align-items: stretch;
-    border-radius: 24px;
-    padding: 10px;
-    box-shadow: var(--shadow);
+    font-size: 50px;
   }
 
-  .nav-links.open {
-    display: flex;
+  .home-hero p,
+  .page-hero p {
+    font-size: 18px;
   }
 
-  .nav-links a {
-    text-align: center;
+  .content-section,
+  .projects-wrapper,
+  .contact-wrapper {
+    padding: 72px 18px;
   }
 
-  .hero,
-  .page-hero {
-    padding-top: 72px;
-    padding-bottom: 72px;
-  }
-
-  .hero h1,
-  .page-hero h1 {
-    font-size: 48px;
-  }
-
-  .hero-buttons {
-    align-items: stretch;
-  }
-
-  .button {
-    width: 100%;
-  }
-
-  .section {
-    padding: 76px 18px;
-  }
-
-  .text-card,
-  .focus-card,
-  .featured-card,
-  .project-info,
-  .contact-card,
-  .contact-note {
+  .text-panel,
+  .preview-card,
+  .project-description,
+  .contact-card {
     padding: 24px;
+  }
+
+  .showcase-project {
+    padding: 12px;
+  }
+
+  .photo-stack {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-stack img,
+  .main-photo {
+    height: 240px;
+  }
+
+  .project-topline {
+    display: block;
+  }
+
+  .project-topline p {
+    margin-top: 8px;
+    white-space: normal;
+  }
+
+  .hero-buttons .button {
+    width: 100%;
   }
 }
