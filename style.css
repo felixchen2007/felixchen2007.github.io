@@ -1,87 +1,51 @@
-* {
-/* Project page */
-.project-entry {
-  padding: 34px 0;
-  border-top: 1px solid #dddddd;
-}
-
-.project-entry:first-of-type {
-  border-top: none;
-  padding-top: 0;
-}
-
-.project-heading {
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  align-items: baseline;
-  margin-bottom: 14px;
-}
-
-.project-heading h2 {
-  margin-bottom: 0;
-}
-
-.project-heading span {
-  color: #666666;
-  font-size: 15px;
-  white-space: nowrap;
-}
-
-.links {
-  margin-top: 12px;
-}
-
-.tags {
-  margin-top: 14px;
-  color: #666666;
-  font-size: 14px;
-  word-spacing: 6px;
-}
-
-/* Contact */
-.contact-list {
-  border-top: 1px solid #dddddd;
-  padding-top: 28px;
-}
-
-.contact-list p {
-  margin-bottom: 16px;
-}
-
-/* Footer */
-footer {
-  margin-top: 64px;
-  padding-top: 24px;
-  border-top: 1px solid #dddddd;
-  color: #777777;
-  font-size: 14px;
-}
-
-/* Mobile */
-@media (max-width: 650px) {
-  .page-container {
-    padding: 24px 18px 42px;
+:root {
+    left: 16px;
+    right: 16px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 24px;
+    padding: 10px;
+    box-shadow: var(--shadow);
   }
 
-  .site-header {
-    display: block;
+  .nav-links.open {
+    display: flex;
   }
 
-  .nav {
-    margin-top: 12px;
+  .nav-links a {
+    text-align: center;
   }
 
-  h1 {
-    font-size: 34px;
+  .hero,
+  .page-hero {
+    padding-top: 72px;
+    padding-bottom: 72px;
   }
 
-  .project-heading {
-    display: block;
+  .hero h1,
+  .page-hero h1 {
+    font-size: 48px;
   }
 
-  .project-heading span {
-    display: block;
-    margin-top: 4px;
+  .hero-buttons {
+    align-items: stretch;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .section {
+    padding: 76px 18px;
+  }
+
+  .text-card,
+  .focus-card,
+  .featured-card,
+  .project-info,
+  .contact-card,
+  .contact-note {
+    padding: 24px;
   }
 }
