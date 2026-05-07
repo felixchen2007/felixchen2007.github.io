@@ -1,437 +1,606 @@
 <!--
-Simple multi-page GitHub Pages portfolio
+Benny-inspired multi-page engineering portfolio.
 
-Create these 4 files in your GitHub repo:
+Make these 4 files in your GitHub Pages repo:
 
-1) index.html
-2) projects.html
-3) contact.html
-4) style.css
+1. index.html
+2. projects.html
+3. contact.html
+4. style.css
 
-The navigation links go to separate pages instead of scrolling down the same page.
+This is intentionally simple, but not barebones:
+- Separate pages, not one-page scrolling
+- Three tabs only: Home, Projects, Contact
+- Minimal text-first portfolio style
+- Similar structure to Benny's site: simple nav, intro text, project entries, dates, links, tags
+- No JavaScript needed
 -->
 
-<!-- =========================
+<!-- =====================================================
 FILE: index.html
-========================= -->
+===================================================== -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Felix Chen | Home</title>
+  <title>Felix Chen</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <a class="logo" href="index.html">felixchen.net</a>
+  <div class="page-container">
+    <header class="site-header">
+      <a class="site-title" href="index.html">Felix Chen</a>
 
-      <div class="nav-links">
-        <a href="index.html">Home</a>
+      <nav class="nav">
+        <a class="active" href="index.html">Home</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
-      </div>
-    </nav>
-  </header>
+      </nav>
+    </header>
 
-  <main class="home">
-    <section class="hero">
-      <div class="hero-text">
-        <p class="small-title">Engineering Portfolio</p>
-        <h1>Hello, I'm Felix.</h1>
+    <main>
+      <section class="intro">
+        <h1>Hello, I'm Felix</h1>
+
         <p>
           I am a UBC engineering student interested in electrical engineering,
           embedded systems, circuit design, and practical hardware projects.
         </p>
 
-        <div class="buttons">
-          <a href="projects.html" class="button">View Projects</a>
-          <a href="contact.html" class="button secondary">Contact Me</a>
-        </div>
-      </div>
+        <p>
+          My current interests include Arduino-based systems, circuit prototyping,
+          PCB design, C programming, and projects that connect software with physical
+          electrical systems. I enjoy understanding how small technical decisions,
+          such as wiring, power delivery, component selection, and input/output logic,
+          affect how an entire system performs.
+        </p>
 
-      <div class="hero-card">
-        <h2>Current Interests</h2>
-        <ul>
-          <li>Electrical engineering</li>
-          <li>Arduino and embedded systems</li>
-          <li>Circuit prototyping</li>
-          <li>PCB design</li>
-          <li>Technical design projects</li>
+        <p>
+          This website is a collection of my engineering projects, coursework,
+          design work, and technical learning. I am using it as a place to document
+          what I build, what I learn, and what I want to improve next.
+        </p>
+      </section>
+
+      <section class="section-block">
+        <h2>Currently</h2>
+        <p>
+          I am building my foundation in electrical and computer engineering through
+          coursework, programming practice, circuit labs, and hands-on design projects.
+          I am especially interested in working on more embedded systems and PCB-related
+          projects in the future.
+        </p>
+      </section>
+
+      <section class="section-block">
+        <h2>Selected Interests</h2>
+        <ul class="plain-list">
+          <li>Electrical engineering and circuit design</li>
+          <li>Embedded systems and Arduino projects</li>
+          <li>C programming and debugging</li>
+          <li>PCB design and soldering</li>
+          <li>Engineering modeling and technical communication</li>
         </ul>
-      </div>
-    </section>
+      </section>
 
-    <section class="about-box">
-      <h2>About Me</h2>
-      <p>
-        I enjoy projects that connect hardware, software, and real-world design constraints.
-        My experience includes Arduino-based systems, wiring, soldering, circuit prototyping,
-        Excel modeling, and technical communication through engineering reports and presentations.
-      </p>
-      <p>
-        I am especially interested in how small design choices, like wire organization, power delivery,
-        or input/output logic, can affect the performance of an entire system.
-      </p>
-    </section>
-  </main>
+      <section class="section-block">
+        <h2>Featured Projects</h2>
+
+        <div class="mini-project">
+          <h3><a href="projects.html#arduino-claw">Arduino Claw Project</a></h3>
+          <p>
+            An Arduino-controlled mechanism focused on wiring, input/output behavior,
+            and microcontroller debugging.
+          </p>
+        </div>
+
+        <div class="mini-project">
+          <h3><a href="projects.html#vehicle">Battery-Powered Vehicle Electrical System</a></h3>
+          <p>
+            A competition vehicle project where I worked on soldering, wiring,
+            power delivery, and electrical organization.
+          </p>
+        </div>
+
+        <div class="mini-project">
+          <h3><a href="projects.html#rainwater">Rainwater Harvesting System Model</a></h3>
+          <p>
+            An engineering design project involving Excel modeling, stakeholder criteria,
+            pump behavior, and system-level tradeoffs.
+          </p>
+        </div>
+      </section>
+
+      <p class="last-updated">Last Updated: May 2026</p>
+    </main>
+
+    <footer>
+      <p>Copyright © 2026 Felix Chen. All rights reserved.</p>
+    </footer>
+  </div>
 </body>
 </html>
 
 
-<!-- =========================
+<!-- =====================================================
 FILE: projects.html
-========================= -->
+===================================================== -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Felix Chen | Projects</title>
+  <title>Projects | Felix Chen</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <a class="logo" href="index.html">felixchen.net</a>
+  <div class="page-container">
+    <header class="site-header">
+      <a class="site-title" href="index.html">Felix Chen</a>
 
-      <div class="nav-links">
+      <nav class="nav">
         <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
+        <a class="active" href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
-      </div>
-    </nav>
-  </header>
+      </nav>
+    </header>
 
-  <main class="page">
-    <h1>Projects</h1>
-    <p class="page-intro">
-      A collection of engineering projects involving hardware, circuits, programming,
-      systems thinking, and technical communication.
-    </p>
+    <main>
+      <section class="intro small-intro">
+        <h1>Projects</h1>
+        <p>
+          A selection of hardware, software, circuit, and engineering design projects.
+          I try to write each project in a way that explains what the project was,
+          what I personally worked on, and what I learned from it.
+        </p>
+      </section>
 
-    <section class="project-list">
-      <article class="project">
-        <h2>Arduino Claw Project</h2>
-        <p class="project-date">APSC 101 · 2026</p>
-        <p>
-          Built and programmed an Arduino-controlled claw system using electrical components,
-          wiring, and microcontroller logic. My main focus was connecting components,
-          debugging input/output behavior, and adjusting the code so the system responded reliably.
-        </p>
-        <p class="tags">Arduino · C/C++ · Wiring · Debugging · Prototyping</p>
-      </article>
+      <section class="project-entry" id="arduino-claw">
+        <div class="project-heading">
+          <h2>Arduino Claw Project</h2>
+          <span>APSC 101 · 2026</span>
+        </div>
 
-      <article class="project">
-        <h2>Battery-Powered Vehicle Electrical System</h2>
-        <p class="project-date">Kwantlen Science Challenge</p>
         <p>
-          Worked on the electrical side of a battery-powered competition vehicle. I connected
-          components, organized wiring, soldered parts together, and helped make sure the vehicle
-          could operate under load.
+          Built and programmed an Arduino-controlled claw system using electrical
+          components, wiring, and microcontroller logic. The goal was to create a
+          mechanism that could respond to programmed inputs and perform a physical task
+          through controlled motion.
         </p>
-        <p>
-          Although our vehicle did not perform as well as expected, comparing it with stronger designs
-          helped me understand the importance of clean wiring, efficient power delivery, and reliable
-          system integration.
-        </p>
-        <p class="tags">Soldering · Circuits · Batteries · Power Delivery · Troubleshooting</p>
-      </article>
 
-      <article class="project">
-        <h2>Rainwater Harvesting System Model</h2>
-        <p class="project-date">APSC 101 · Engineering Design</p>
         <p>
-          Developed an engineering model for a remote household rainwater harvesting system.
-          The project considered water demand, rainfall data, pump behavior, stakeholder criteria,
-          and system-level tradeoffs.
+          My main role was connecting the Arduino to different components, organizing
+          the wiring, debugging input/output behavior, and adjusting the code so the
+          system responded in the intended way. During testing, I learned how even a
+          small wiring issue or logic error could change the behavior of the entire system.
         </p>
-        <p class="tags">Excel · Systems Modeling · Hydraulics · Decision Matrix · Technical Writing</p>
-      </article>
 
-      <article class="project">
-        <h2>C Programming Practice</h2>
-        <p class="project-date">Coursework / Personal Practice</p>
         <p>
-          Completed smaller programming tasks focused on arrays, strings, file I/O, functions,
-          memory behavior, and algorithmic problem solving.
+          This project helped me become more interested in embedded systems because it
+          showed how software, electrical connections, and mechanical behavior all depend
+          on each other in a real design.
         </p>
-        <p class="tags">C · Algorithms · File I/O · Debugging</p>
-      </article>
-    </section>
-  </main>
+
+        <p class="links">
+          LINK: <a href="#">Add GitHub / Google Drive link here</a>
+        </p>
+
+        <p class="tags">Arduino C/C++ Wiring Debugging Prototyping Embedded-Systems</p>
+      </section>
+
+      <section class="project-entry" id="vehicle">
+        <div class="project-heading">
+          <h2>Battery-Powered Vehicle Electrical System</h2>
+          <span>Kwantlen Science Challenge</span>
+        </div>
+
+        <p>
+          Worked on the electrical side of a battery-powered vehicle designed for a local
+          STEM competition. The vehicle had to move across a course while carrying its
+          electrical and mechanical components reliably under load.
+        </p>
+
+        <p>
+          My role included connecting components, organizing wires, soldering connections,
+          and helping make sure the electrical system stayed functional while the vehicle
+          moved. Although our vehicle did not perform as well as we hoped, the project
+          still had a strong impact on me.
+        </p>
+
+        <p>
+          Seeing cleaner and faster vehicles from other teams made me want to understand
+          what made their designs better. I became more aware of the importance of clean
+          wiring, efficient power delivery, mechanical-electrical integration, and reliable
+          construction. This experience became one of the reasons I became interested in
+          electrical engineering.
+        </p>
+
+        <p class="links">
+          LINK: <a href="#">Add photos / project documentation here</a>
+        </p>
+
+        <p class="tags">Soldering Circuits Batteries Wiring Power-Delivery Troubleshooting</p>
+      </section>
+
+      <section class="project-entry" id="rainwater">
+        <div class="project-heading">
+          <h2>Rainwater Harvesting System Model</h2>
+          <span>APSC 101 · Engineering Design</span>
+        </div>
+
+        <p>
+          Developed an engineering model for a rainwater harvesting system designed for
+          a remote two-person household. The project involved estimating household water
+          demand, using rainfall data, evaluating system performance, and comparing design
+          options through stakeholder criteria.
+        </p>
+
+        <p>
+          The technical work included Excel modeling, pump and system curve reasoning,
+          flow calculations, risk assessment, and a weighted decision matrix. The design
+          also required balancing technical performance with cost, maintainability,
+          stakeholder satisfaction, and long-term reliability.
+        </p>
+
+        <p>
+          This project helped me practice systems thinking because the final design was
+          not based on one calculation alone. It depended on how different engineering,
+          environmental, and stakeholder factors affected each other.
+        </p>
+
+        <p class="links">
+          LINK: <a href="#">Add report / slide deck link here</a>
+        </p>
+
+        <p class="tags">Excel Systems-Modeling Hydraulics Pump-Curves Decision-Matrix Technical-Writing</p>
+      </section>
+
+      <section class="project-entry" id="c-programming">
+        <div class="project-heading">
+          <h2>C Programming Practice</h2>
+          <span>Coursework / Personal Practice</span>
+        </div>
+
+        <p>
+          Completed programming exercises focused on arrays, strings, functions, file I/O,
+          pointers, memory behavior, and algorithmic problem solving. These projects helped
+          me become more comfortable with debugging and writing code that behaves predictably.
+        </p>
+
+        <p>
+          Some topics I have worked on include sorting, string parsing, reading and writing
+          files, two-dimensional arrays, pointer behavior, and common algorithmic problems.
+          I use these exercises to improve my ability to break down problems and test code
+          carefully.
+        </p>
+
+        <p class="links">
+          LINK: <a href="#">Add GitHub repository here</a>
+        </p>
+
+        <p class="tags">C Arrays Strings File-I/O Pointers Debugging Algorithms</p>
+      </section>
+
+      <section class="project-entry" id="circuits">
+        <div class="project-heading">
+          <h2>Circuit Prototyping and Measurement</h2>
+          <span>Coursework / Lab Work</span>
+        </div>
+
+        <p>
+          Worked with basic circuit prototyping and measurement tools through engineering
+          and physics coursework. This included observing circuit behavior, using measurement
+          equipment, interpreting signals, and comparing expected results with physical behavior.
+        </p>
+
+        <p>
+          This type of work strengthened my interest in electrical engineering because it
+          connected theory to real signals, components, and troubleshooting. I enjoyed the
+          process of testing a circuit, finding unexpected behavior, and using measurements
+          to understand what was happening.
+        </p>
+
+        <p class="links">
+          LINK: <a href="#">Add lab notes / photos here</a>
+        </p>
+
+        <p class="tags">Circuits Measurement Oscilloscope Testing Troubleshooting Electronics</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Copyright © 2026 Felix Chen. All rights reserved.</p>
+    </footer>
+  </div>
 </body>
 </html>
 
 
-<!-- =========================
+<!-- =====================================================
 FILE: contact.html
-========================= -->
+===================================================== -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Felix Chen | Contact</title>
+  <title>Contact | Felix Chen</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <a class="logo" href="index.html">felixchen.net</a>
+  <div class="page-container">
+    <header class="site-header">
+      <a class="site-title" href="index.html">Felix Chen</a>
 
-      <div class="nav-links">
+      <nav class="nav">
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </nav>
-  </header>
+        <a class="active" href="contact.html">Contact</a>
+      </nav>
+    </header>
 
-  <main class="page contact-page">
-    <h1>Contact</h1>
-    <p class="page-intro">
-      Feel free to reach out about engineering projects, student design teams,
-      electrical engineering opportunities, or hardware-related work.
-    </p>
+    <main>
+      <section class="intro small-intro">
+        <h1>Contact</h1>
+        <p>
+          Feel free to reach out about engineering projects, student design teams,
+          hardware work, embedded systems, or electrical engineering opportunities.
+        </p>
+      </section>
 
-    <section class="contact-box">
-      <h2>Let's Connect</h2>
+      <section class="contact-list">
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:your.email@example.com">your.email@example.com</a>
+        </p>
 
-      <p><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank">linkedin.com/in/YOUR-LINKEDIN</a></p>
-      <p><strong>GitHub:</strong> <a href="https://github.com/YOUR-GITHUB" target="_blank">github.com/YOUR-GITHUB</a></p>
-      <p><strong>Resume:</strong> <a href="assets/Felix_Chen_Resume.pdf" target="_blank">View Resume</a></p>
-    </section>
-  </main>
+        <p>
+          <strong>LinkedIn:</strong>
+          <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank">
+            linkedin.com/in/YOUR-LINKEDIN
+          </a>
+        </p>
+
+        <p>
+          <strong>GitHub:</strong>
+          <a href="https://github.com/YOUR-GITHUB" target="_blank">
+            github.com/YOUR-GITHUB
+          </a>
+        </p>
+
+        <p>
+          <strong>Resume:</strong>
+          <a href="assets/Felix_Chen_Resume.pdf" target="_blank">
+            View Resume
+          </a>
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Copyright © 2026 Felix Chen. All rights reserved.</p>
+    </footer>
+  </div>
 </body>
 </html>
 
 
-<!-- =========================
+<!-- =====================================================
 FILE: style.css
-========================= -->
-/* Basic setup */
+===================================================== -->
+/*
+  Simple Benny-inspired portfolio styling.
+  No JavaScript. No frameworks. Just HTML + CSS.
+*/
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f5f7f8;
-  color: #1d2529;
-  line-height: 1.6;
+  background: #ffffff;
+  color: #222222;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
 }
 
-/* Navigation */
-header {
-  background-color: #152025;
-  color: white;
-}
-
-.navbar {
-  max-width: 1000px;
+.page-container {
+  max-width: 860px;
   margin: 0 auto;
-  padding: 22px 25px;
+  padding: 32px 24px 48px;
+}
+
+/* Header / Navigation */
+.site-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
+  gap: 24px;
+  padding-bottom: 34px;
+  margin-bottom: 42px;
+  border-bottom: 1px solid #dddddd;
 }
 
-.logo {
-  color: white;
+.site-title {
+  color: #111111;
   text-decoration: none;
   font-size: 24px;
-  font-weight: normal;
+  font-weight: bold;
 }
 
-.nav-links a {
-  color: white;
+.nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  color: #333333;
   text-decoration: none;
-  margin-left: 28px;
-  font-size: 16px;
 }
 
-.nav-links a:hover {
+.nav a:hover,
+.nav a.active {
   text-decoration: underline;
 }
 
-/* Home page */
-.home {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 70px 25px;
+/* Main text */
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  color: #111111;
 }
 
-.hero {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 35px;
-  align-items: center;
-  min-height: 420px;
+h1 {
+  font-size: 42px;
+  margin: 0 0 20px;
 }
 
-.small-title {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #2c7480;
-  font-weight: bold;
-  font-size: 13px;
-}
-
-.hero h1 {
-  font-size: 58px;
-  line-height: 1.05;
-  margin: 12px 0 20px;
-}
-
-.hero p {
-  font-size: 19px;
-  color: #4a555a;
-  max-width: 650px;
-}
-
-.buttons {
-  margin-top: 28px;
-}
-
-.button {
-  display: inline-block;
-  background-color: #152025;
-  color: white;
-  text-decoration: none;
-  padding: 12px 18px;
-  border-radius: 8px;
-  margin-right: 10px;
-}
-
-.button.secondary {
-  background-color: white;
-  color: #152025;
-  border: 1px solid #cfd8dc;
-}
-
-.hero-card,
-.about-box,
-.project,
-.contact-box {
-  background-color: white;
-  border: 1px solid #dfe6e9;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-}
-
-.hero-card {
-  padding: 28px;
-}
-
-.hero-card h2 {
-  margin-top: 0;
-}
-
-.hero-card ul {
-  padding-left: 20px;
-}
-
-.hero-card li {
-  margin-bottom: 8px;
-}
-
-.about-box {
-  margin-top: 45px;
-  padding: 32px;
-}
-
-.about-box h2 {
-  margin-top: 0;
-}
-
-/* General page layout */
-.page {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 70px 25px;
-}
-
-.page h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
-}
-
-.page-intro {
-  font-size: 19px;
-  color: #4a555a;
-  max-width: 720px;
-  margin-bottom: 35px;
-}
-
-/* Projects */
-.project-list {
-  display: grid;
-  gap: 22px;
-}
-
-.project {
-  padding: 28px;
-}
-
-.project h2 {
-  margin: 0;
+h2 {
   font-size: 27px;
+  margin: 0 0 12px;
 }
 
-.project-date {
-  color: #2c7480;
-  font-weight: bold;
-  margin-top: 6px;
+h3 {
+  font-size: 20px;
+  margin: 0 0 6px;
+}
+
+p {
+  margin: 0 0 18px;
+}
+
+a {
+  color: #0645ad;
+}
+
+.intro {
+  margin-bottom: 44px;
+}
+
+.small-intro {
+  margin-bottom: 34px;
+}
+
+.section-block {
+  margin: 38px 0;
+}
+
+.plain-list {
+  margin-top: 8px;
+  padding-left: 24px;
+}
+
+.plain-list li {
+  margin-bottom: 7px;
+}
+
+.mini-project {
+  margin: 22px 0;
+}
+
+.mini-project h3 a {
+  color: #111111;
+  text-decoration: none;
+}
+
+.mini-project h3 a:hover {
+  text-decoration: underline;
+}
+
+.last-updated {
+  margin-top: 46px;
+  color: #666666;
+  font-size: 15px;
+}
+
+/* Project page */
+.project-entry {
+  padding: 34px 0;
+  border-top: 1px solid #dddddd;
+}
+
+.project-entry:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.project-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: baseline;
+  margin-bottom: 14px;
+}
+
+.project-heading h2 {
+  margin-bottom: 0;
+}
+
+.project-heading span {
+  color: #666666;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.links {
+  margin-top: 12px;
 }
 
 .tags {
-  color: #5a686e;
-  font-weight: bold;
+  margin-top: 14px;
+  color: #666666;
   font-size: 14px;
-  margin-top: 18px;
+  word-spacing: 6px;
 }
 
 /* Contact */
-.contact-box {
-  padding: 32px;
+.contact-list {
+  border-top: 1px solid #dddddd;
+  padding-top: 28px;
 }
 
-.contact-box h2 {
-  margin-top: 0;
+.contact-list p {
+  margin-bottom: 16px;
 }
 
-.contact-box a {
-  color: #216b78;
+/* Footer */
+footer {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid #dddddd;
+  color: #777777;
+  font-size: 14px;
 }
 
-/* Mobile layout */
-@media (max-width: 750px) {
-  .navbar {
+/* Mobile */
+@media (max-width: 650px) {
+  .page-container {
+    padding: 24px 18px 42px;
+  }
+
+  .site-header {
     display: block;
-    text-align: center;
   }
 
-  .nav-links {
-    margin-top: 15px;
+  .nav {
+    margin-top: 12px;
   }
 
-  .nav-links a {
-    margin: 0 10px;
+  h1 {
+    font-size: 34px;
   }
 
-  .hero {
-    grid-template-columns: 1fr;
+  .project-heading {
+    display: block;
   }
 
-  .hero h1 {
-    font-size: 42px;
-  }
-
-  .page h1 {
-    font-size: 40px;
+  .project-heading span {
+    display: block;
+    margin-top: 4px;
   }
 }
