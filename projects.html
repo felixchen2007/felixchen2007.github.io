@@ -1,11 +1,94 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Felix Chen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <a class="brand" href="index.html">felixchen.net</a>
+
+      <button class="menu-button" id="menuButton" aria-label="Open navigation">☰</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a class="active" href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="hero-overlay"></div>
+
+      <div class="page-hero-content reveal">
+        <p class="eyebrow">Selected Work</p>
+        <h1>Projects</h1>
+        <p>
+          A focused collection of engineering projects. Photos and diagrams are shown on the left;
+          descriptions, links, and skills are shown on the right.
+        </p>
+      </div>
+    </section>
+
+    <section class="projects-wrapper">
+      <article class="showcase-project reveal" id="arduino-claw">
+        <div class="project-media">
+          <img class="main-photo" src="images/arduino-claw-1.jpg" alt="Arduino claw project main photo">
+          <div class="photo-stack">
+            <img src="images/arduino-claw-2.jpg" alt="Arduino claw wiring detail">
+            <img src="images/arduino-claw-3.jpg" alt="Arduino claw build detail">
+          </div>
+        </div>
+
+        <div class="project-description glass-card">
+          <div class="project-topline">
+            <h2>Arduino Claw Project</h2>
+            <p>APSC 101 · 2026</p>
+          </div>
+
+          <p>
+            Built and programmed an Arduino-controlled claw system using electrical components,
+            wiring, and microcontroller logic. The goal was to control a physical mechanism through
+            programmed input/output behavior and make the system respond reliably during testing.
+          </p>
+
+          <p>
+            My main role was connecting the Arduino to different components, organizing the wiring,
+            debugging input/output behavior, and adjusting the code so the mechanism behaved the way
+            it was intended to. This project made the connection between software logic and physical
+            electrical behavior much more clear to me.
+          </p>
+
+          <p>
+            The most interesting part was troubleshooting. A small wiring issue, weak connection,
+            or logic mistake could change the entire system response. Testing the claw forced me to
+            slow down, isolate problems, and verify each part of the system step by step.
+          </p>
+
+          <p class="project-link">
+            LINK: <a href="#">Add project photos, demo video, or GitHub link here</a>
+          </p>
+
+          <div class="tag-row">
+            <span>Arduino</span>
+            <span>C/C++</span>
+            <span>Wiring</span>
+            <span>Debugging</span>
+            <span>Embedded Systems</span>
+            <span>Prototyping</span>
           </div>
         </div>
       </article>
 
       <article class="showcase-project reveal" id="rainwater">
         <div class="project-media">
-          <img class="main-photo" src="images/rainwater-1.jpg" alt="Rainwater harvesting spreadsheet or model overview">
+          <img class="main-photo" src="images/rainwater-1.jpg" alt="Rainwater harvesting spreadsheet overview">
           <div class="photo-stack">
             <img src="images/rainwater-2.jpg" alt="Rainwater harvesting calculations or chart">
             <img src="images/rainwater-3.jpg" alt="Rainwater harvesting system diagram or slide">
