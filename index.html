@@ -1,90 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Felix Chen | Engineering Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="UBC engineering student exploring electrical engineering, embedded systems, and practical hardware projects."><meta name="theme-color" content="#f7f7f2"><title>Felix Chen | Engineering Portfolio</title><link rel="stylesheet" href="style.css"><script src="script.js" defer></script></head>
+<body><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><nav class="nav container" aria-label="Main navigation">
 
-<body>
-  <header class="site-header">
-    <nav class="navbar">
-      <button class="menu-button" id="menuButton" aria-label="Open navigation">☰</button>
-
-      <div class="nav-links" id="navLinks">
-        <a class="active" href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <section class="home-hero">
-      <div class="hero-overlay"></div>
-
-      <div class="home-hero-content reveal">
-        <p class="eyebrow">Engineering Portfolio</p>
-        <h1>Hello, I'm Felix.</h1>
-        <p>
-          I am a UBC engineering student interested in electrical engineering,
-          embedded systems, circuit design, and practical hardware projects.
-        </p>
-
-        <div class="hero-buttons">
-          <a class="button white-button" href="projects.html">View Projects</a>
-          <a class="button ghost-button" href="contact.html">Contact Me</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section about-single">
-  <div class="text-panel reveal">
-    <p class="kicker">About Me</p>
-
-    <p>
-      My interest in engineering comes from hands-on projects involving Arduino systems,
-      wiring, soldering, circuit prototyping, and design modeling. I enjoy figuring out
-      why a system behaves the way it does, especially when small technical decisions
-      change the performance of the entire design.
-    </p>
-
-    <p>
-      This portfolio highlights two projects I want to present clearly: an Arduino claw
-      build and an Excel-based rainwater harvesting system model.
-    </p>
-  </div>
+<button class="menu-button" aria-expanded="false" aria-controls="nav-links">Menu <span aria-hidden="true">+</span></button>
+<div class="nav-links" id="nav-links"><a href="index.html" aria-current="page">Home</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div>
+</nav></header><main id="main">
+<section class="hero container home-introduction">
+<div><p class="eyebrow">Engineering Portfolio</p><h1 class="name">Hello,<br>I'm Felix.</h1></div>
+<div class="hero-intro">
+<p class="intro">I'm studying engineering at UBC, with an interest in electronics and embedded systems.</p>
+<a class="button" href="projects.html">View projects </a>
+</div>
 </section>
-
-    <section class="content-section">
-      <div class="section-heading reveal">
-        <p class="kicker">Featured Projects</p>
-        <h2>Selected work</h2>
-      </div>
-
-      <div class="preview-grid">
-        <a class="preview-card reveal" href="projects.html#arduino-claw">
-          <p class="project-type">Arduino / Embedded</p>
-          <h3>Arduino Claw Project</h3>
-          <p>Wiring, microcontroller logic, debugging, and physical mechanism control.</p>
-          <span>View project →</span>
-        </a>
-
-        <a class="preview-card reveal" href="projects.html#rainwater">
-          <p class="project-type">Excel / Systems Modeling</p>
-          <h3>Rainwater Harvesting System</h3>
-          <p>Excel calculations, pump behavior, stakeholder tradeoffs, and system design.</p>
-          <span>View project →</span>
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>© 2026 Felix Chen. Built with HTML, CSS, and JavaScript.</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+<section class="section container" id="selected-work">
+<div class="section-heading"><div><h2>Selected projects</h2></div><a class="text-link" href="projects.html">All projects </a></div>
+<div class="project-grid">
+<a class="project-preview" href="projects.html#rainwater">
+<div class="preview-image"><img src="images/rainwater-1.jpg" alt="Rainwater harvesting system project" width="800" height="600"></div>
+<div class="preview-meta"><span>Systems modeling</span></div><h3>Rainwater harvesting</h3><p>Modeling water demand, storage, and design tradeoffs.</p></a>
+<a class="project-preview" href="projects.html#arduino-claw">
+<div class="preview-image"><img src="images/arduino-claw-1.jpg" alt="Arduino-controlled claw prototype" width="800" height="600"></div>
+<div class="preview-meta"><span>Embedded systems</span></div><h3>Arduino claw</h3><p>Connecting code, wiring, and a physical mechanism.</p></a>
+</div></section>
+</main><footer class="footer container"><p>© 2026 Felix Chen</p></footer></body></html>

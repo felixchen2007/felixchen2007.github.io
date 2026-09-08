@@ -1,26 +1,23 @@
-const menuButton = document.getElementById("menuButton");
-const navLinks = document.getElementById("navLinks");
-
-if (menuButton && navLinks) {
-  menuButton.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-    menuButton.textContent = navLinks.classList.contains("open") ? "×" : "☰";
+(() => {
+  const button = document.querySelector('.menu-button');
+  const links = document.querySelector('.nav-links');
+  if (!button || !links) return;
+  document.documentElement.classList.add('js');
+  const setOpen = (open) => {
+    button.setAttribute('aria-expanded', String(open));
+    links.classList.toggle('open', open);
+    button.querySelector('span').textContent = open ? '−' : '+';
+  };
+  button.addEventListener('click', () => setOpen(button.getAttribute('aria-expanded') !== 'true'));
+  links.addEventListener('click', (event) => {
+    if (event.target.closest('a')) setOpen(false);
   });
-}
-
-const revealElements = document.querySelectorAll(".reveal");
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      revealObserver.unobserve(entry.target);
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') {
+      setOpen(false);
+      button.focus();
     }
   });
-}, {
-  threshold: 0.12
-});
-
-revealElements.forEach((element) => {
-  revealObserver.observe(element);
-});
+  const mobile = window.matchMedia('(max-width: 640px)');
+  mobile.addEventListener('change', () => setOpen(false));
+})();

@@ -1,137 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects | Felix Chen</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Arduino hardware and rainwater harvesting design projects by Felix Chen, a UBC engineering student."><meta name="theme-color" content="#f7f7f2"><title>Projects | Felix Chen</title><link rel="stylesheet" href="style.css"><script src="script.js" defer></script></head>
+<body><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><nav class="nav container" aria-label="Main navigation">
 
-<body>
-  <header class="site-header">
-    <nav class="navbar">
-      <button class="menu-button" id="menuButton" aria-label="Open navigation">☰</button>
-
-      <div class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a class="active" href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <section class="page-hero">
-      <div class="hero-overlay"></div>
-
-      <div class="page-hero-content reveal">
-        <p class="eyebrow">Selected Work</p>
-        <h1>Projects</h1>
-        <p>
-          A focused collection of engineering projects. Photos are shown on the left;
-          descriptions, links, and skills are shown on the right.
-        </p>
-      </div>
-    </section>
-
-    <section class="projects-wrapper">
-      <article class="showcase-project reveal" id="arduino-claw">
-        <div class="project-media">
-          <img class="main-photo" src="./images/arduino-claw-1.jpg" alt="Arduino claw project photo">
-        </div>
-
-        <div class="project-description glass-card">
-          <div class="project-topline">
-            <h2>Arduino Claw Project</h2>
-            <p>APSC 101 · 2026</p>
-          </div>
-
-          <p>
-            Built and programmed an Arduino-controlled claw system using electrical components,
-            wiring, and microcontroller logic. The goal was to control a physical mechanism through
-            programmed input/output behavior and make the system respond reliably during testing.
-          </p>
-
-          <p>
-            My main role was connecting the Arduino to different components, organizing the wiring,
-            debugging input/output behavior, and adjusting the code so the mechanism behaved the way
-            it was intended to. This project made the connection between software logic and physical
-            electrical behavior much more clear to me.
-          </p>
-
-          <p>
-            The most interesting part was troubleshooting. A small wiring issue, weak connection,
-            or logic mistake could change the entire system response. Testing the claw forced me to
-            slow down, isolate problems, and verify each part of the system step by step.
-          </p>
-
-          <p class="project-link">
-            LINK: <a href="#">Add project photos, demo video, or GitHub link here</a>
-          </p>
-
-          <div class="tag-row">
-            <span>Arduino</span>
-            <span>C/C++</span>
-            <span>Wiring</span>
-            <span>Debugging</span>
-            <span>Embedded Systems</span>
-            <span>Prototyping</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="showcase-project reveal" id="rainwater">
-        <div class="project-media">
-          <img class="main-photo" src="./images/rainwater-1.jpg" alt="Rainwater harvesting spreadsheet or model photo">
-        </div>
-
-        <div class="project-description glass-card">
-          <div class="project-topline">
-            <h2>Excel Rainwater Harvesting System</h2>
-            <p>APSC 101 · Engineering Design</p>
-          </div>
-
-          <p>
-            Developed an Excel-based engineering model for a rainwater harvesting system designed for
-            a remote two-person household. The model considered household water demand, rainfall data,
-            storage behavior, pump behavior, and system-level tradeoffs.
-          </p>
-
-          <p>
-            The project required balancing technical performance with stakeholder needs. I used Excel
-            calculations to compare design choices and support decisions related to water availability,
-            reliability, cost, and maintainability. The system was not judged by one number alone; it
-            depended on how multiple design constraints affected each other.
-          </p>
-
-          <p>
-            My work included organizing assumptions, building spreadsheet calculations, interpreting
-            pump and system behavior, and communicating results through visuals and presentation slides.
-            This project helped me practice systems thinking because the strongest design had to balance
-            engineering calculations with real user needs.
-          </p>
-
-          <p class="project-link">
-            LINK: <a href="#">Add Excel file, report, slide deck, or screenshots here</a>
-          </p>
-
-          <div class="tag-row">
-            <span>Excel</span>
-            <span>Systems Modeling</span>
-            <span>Rainwater Harvesting</span>
-            <span>Pump Curves</span>
-            <span>Decision Matrix</span>
-            <span>Technical Communication</span>
-          </div>
-        </div>
-      </article>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>© 2026 Felix Chen. Built with HTML, CSS, and JavaScript.</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+<button class="menu-button" aria-expanded="false" aria-controls="nav-links">Menu <span aria-hidden="true">+</span></button>
+<div class="nav-links" id="nav-links"><a href="index.html">Home</a><a href="projects.html" aria-current="page">Projects</a><a href="contact.html">Contact</a></div>
+</nav></header><main id="main">
+<section class="page-heading container"><h1>Projects</h1><ul class="project-jumps"><li><a href="#rainwater">Rainwater harvesting</a></li><li><a href="#arduino-claw">Arduino claw</a></li></ul></section>
+<section class="container project-list" aria-label="Project details">
+<article class="project-detail" id="rainwater">
+<div class="detail-heading"><div><p class="eyebrow">Systems modeling</p><h2>Rainwater harvesting</h2></div></div>
+<div class="detail-grid"><figure class="detail-image"><img src="images/rainwater-1.jpg" alt="Rainwater harvesting system project model" loading="lazy"></figure>
+<div class="detail-copy rainwater-copy"><div class="rainwater-overview"><p>Developed an Excel-based model for a rainwater harvesting system serving a remote two-person household. The model considered water demand, rainfall, storage, pump behavior, and system-level tradeoffs.</p></div><div><h3>My contribution</h3><p>I organized assumptions, built spreadsheet calculations, interpreted pump and system behavior, and communicated results through visuals and presentation slides. Excel calculations helped compare design choices for water availability, reliability, cost, and maintainability.</p></div><div><h3>What I learned</h3><p>The design could not be judged by a single number. Balancing technical performance with stakeholder needs helped me understand how connected constraints shape an engineering decision.</p></div>
+</div></div></article>
+<article class="project-detail" id="arduino-claw">
+<div class="detail-heading"><div><p class="eyebrow">Embedded systems</p><h2>Arduino claw</h2></div></div>
+<div class="detail-grid"><figure class="detail-image"><img src="images/arduino-claw-1.jpg" alt="Arduino-controlled claw prototype with its wiring and mechanism"></figure>
+<div class="detail-copy"><p>Built and programmed an Arduino-controlled claw system using electrical components, wiring, and microcontroller logic. The goal was to control a physical mechanism through programmed input and output, and make its response reliable during testing.</p>
+<h3>My contribution</h3><p>I connected the Arduino to the components, organized the wiring, debugged input and output behavior, and adjusted the code to make the mechanism respond as intended.</p>
+<h3>What I learned</h3><p>A weak connection or small logic mistake could change the entire system response. Troubleshooting taught me to slow down, isolate problems, and verify each part of the system step by step.</p>
+</div></div></article></section>
+</main><footer class="footer container"><p>© 2026 Felix Chen</p></footer></body></html>
