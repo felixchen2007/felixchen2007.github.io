@@ -7,9 +7,10 @@
   <meta name="description" content="Felix Chen's electrical engineering portfolio. Explore embedded systems, PCB design, and power electronics through a collection of engineering project sheets.">
   <title>Felix Chen — Engineering, on paper.</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20261022-pages">
   <link rel="stylesheet" href="carousel.css?v=20261022-motion">
-  <script src="script.js?v=20261022-motion" defer></script>
+  <script src="projects-data.js?v=20261022-pages" defer></script>
+  <script src="script.js?v=20261022-pages" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#projects">Skip to projects</a>
@@ -20,7 +21,7 @@
 
   <main>
     <section id="projects" class="portfolio" aria-label="Engineering project collection">
-      <div class="collection-heading"><span><i></i> Selected work / 2026</span><span>Ideas, built into things.</span></div>
+      <div class="collection-heading"><span><i></i> Selected work / 2026</span></div>
       <div class="drawing-stage" role="group" aria-roledescription="carousel" aria-label="Project drawings">
         <article class="drawing-sheet" id="active-sheet" role="tabpanel" aria-roledescription="slide" aria-labelledby="project-tab-0">
           <div class="sheet-grid top-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></div>
@@ -34,7 +35,7 @@
               <h1 id="project-title">Weather<br>Monitor PCB</h1>
               <p id="project-summary" class="project-summary">From a breadboard to a custom PCB. An ESP32 weather monitor that brings temperature, humidity, and solar power data to a screen and the web.</p>
               <dl class="project-specs"><div><dt>Drawing no.</dt><dd id="drawing-no">PRJ–001</dd></div><div><dt>Discipline</dt><dd id="project-discipline">Embedded systems</dd></div><div><dt>Contribution</dt><dd id="project-role"><span class="status-dot"></span>Independent project</dd></div><div><dt>Tools</dt><dd id="project-tools">Altium / ESP32 / C++</dd></div></dl>
-              <div class="project-actions"><button class="primary-button" id="open-project">Open project <span aria-hidden="true">↗</span></button><a class="text-button" href="#build-notes">Build notes <span aria-hidden="true">↓</span></a></div>
+              <div class="project-actions"><a class="primary-button" id="open-project" href="projects/weather-monitor/">Open project <span aria-hidden="true">↗</span></a><a class="text-button" href="projects/weather-monitor/#build-notes">Build notes <span aria-hidden="true">↓</span></a></div>
             </div>
             <div class="revision-table"><div>Drawing register</div><table><thead><tr><th>Sheet</th><th>Description</th><th>By</th></tr></thead><tbody><tr><td id="register-number">01</td><td>Portfolio study</td><td>F. Chen</td></tr></tbody></table></div>
             <figure class="project-figure" id="project-figure"><img id="project-image" src="assets/weather-monitor-pcb.png" alt="3D render of Felix Chen's ESP32 weather monitor PCB" fetchpriority="high"><svg class="callout-overlay" viewBox="0 0 700 430" aria-hidden="true"><g class="leader-lines"><path d="M132 74 L201 150"/><path d="M355 34 L353 120"/><path d="M596 105 L494 195"/><path d="M526 366 L469 295"/></g><g class="callout-numbers"><circle cx="132" cy="74" r="15"/><text x="132" y="79">1</text><circle cx="355" cy="34" r="15"/><text x="355" y="39">2</text><circle cx="596" cy="105" r="15"/><text x="596" y="110">3</text><circle cx="526" cy="366" r="15"/><text x="526" y="371">4</text></g></svg><figcaption id="figure-caption">01 — PCB assembly / isometric view</figcaption></figure>
@@ -52,11 +53,9 @@
       <p id="project-announcement" class="sr-only" aria-live="polite"></p>
     </section>
 
-    <section class="build-notes content-section" id="build-notes" aria-labelledby="notes-title"><div class="section-heading"><p class="eyebrow">Behind the drawing / <span id="notes-id">PRJ–001</span></p><span class="tiny-note">The decisions behind the design</span></div><div class="notes-layout"><div><h2 id="notes-title">A closer look<br>at the build.</h2><p class="section-intro" id="notes-intro">A complete embedded system, developed one iteration at a time.</p><button class="text-button" id="more-details">Explore project <span aria-hidden="true">↗</span></button></div><div class="note-accordions" id="note-accordions"></div></div></section>
-    <section class="about content-section" id="about" aria-labelledby="about-title"><div class="section-heading"><p class="eyebrow">The person behind the projects</p><span class="tiny-note">About / FC</span></div><div class="about-layout"><h2 id="about-title">Curious by nature.<br>Engineer in progress<span>.</span></h2><div><p>I'm Felix, a second-year electrical engineering student at the University of British Columbia.</p><p>I’m interested in embedded systems and power electronics—the places where code, circuits, and physical systems come together. These projects document what I’m building, testing, and learning along the way.</p><div class="interest-tags"><span>PCB design</span><span>Embedded systems</span><span>Power electronics</span></div></div></div></section>
+    <section class="about content-section" id="about" aria-label="About Felix Chen"><div class="section-heading"><p class="eyebrow">The person behind the projects</p><span class="tiny-note">About / FC</span></div><div class="about-layout"><div><p>I'm Felix, a second-year electrical engineering student at the University of British Columbia.</p><p>I’m interested in embedded systems and power electronics—the places where code, circuits, and physical systems come together. These projects document what I’m building, testing, and learning along the way.</p><div class="interest-tags"><span>PCB design</span><span>Embedded systems</span><span>Power electronics</span></div></div></div></section>
     <footer class="content-section contact" id="contact"><div><p class="eyebrow">Have something in mind?</p><a class="contact-title" href="mailto:felixchenn22@gmail.com">Let's connect. <span aria-hidden="true">↗</span></a></div><div class="contact-links"><a href="mailto:felixchenn22@gmail.com">Email <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/felixc2007" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a href="https://github.com/felixchen2007" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a></div><div class="footer-line"><span>© 2026 Felix Chen</span><span>Always a work in progress.</span><a href="#projects">Back to the drawings ↑</a></div></footer>
   </main>
 
-  <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="Close project details">×</button><div class="dialog-header"><p class="eyebrow" id="dialog-number"></p><h2 id="dialog-title"></h2><p id="dialog-summary"></p></div><figure class="dialog-image"><img id="dialog-image" alt=""><figcaption id="dialog-caption"></figcaption></figure><div class="dialog-body" id="dialog-body"></div><div class="dialog-footer"><span>Designed, built, and documented by Felix Chen.</span><button class="text-button dialog-next">Next project →</button></div></dialog>
 </body>
 </html>

@@ -7,11 +7,16 @@ A static electrical engineering portfolio with drafting-paper project sheets, a 
 - `index.html`: portfolio page and project-sheet template
 - `style.css`: typography, drafting-paper design, and responsive layout
 - `carousel.css`: carousel layout and motion
-- `script.js`: project content, carousel navigation, and project dialogs
+- `script.js`: carousel navigation and motion
+- `projects-data.js`: shared project content
+- `projects/*/index.html`: standalone project pages, readable without JavaScript
+- `project-page.css`: project-page layout
 - `assets/`: project images, self-hosted fonts, and favicon
 - `projects.html` and `contact.html`: compatibility redirects for older links
 
 The site needs no build step. Serve the repository root with any static web server, or publish the root through GitHub Pages or Vercel.
+
+After editing project content in `projects-data.js`, run `node scripts/build-project-pages.mjs` to regenerate the checked-in project pages. The carousel reads the same content file.
 
 ## Previous website
 

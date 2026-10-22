@@ -8,7 +8,7 @@
   <script>
     const project = location.hash.slice(1);
     const knownProjects = new Set(['weather-monitor', 'buck-boost-converter', 'rainwater', 'arduino-claw']);
-    location.replace(knownProjects.has(project) ? './?project=' + encodeURIComponent(project) + '#projects' : './#projects');
+    location.replace(knownProjects.has(project) ? './projects/' + encodeURIComponent(project) + '/' : './#projects');
   </script>
 </head>
 <body><p><a href="./#projects">Explore Felix Chen's engineering projects.</a></p></body>
