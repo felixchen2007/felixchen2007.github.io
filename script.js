@@ -59,8 +59,10 @@ const stage = $('.drawing-stage');
 const track = document.createElement('div');
 track.className = 'carousel-track';
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const sheetMotionDuration = 900;
+stage.style.setProperty('--sheet-motion-duration', `${sheetMotionDuration}ms`);
 let cards = [];
-const firstProjectSlot = 2;
+const firstProjectSlot = 3;
 let position = firstProjectSlot;
 let moving = false;
 let queuedSelection = null;
@@ -90,7 +92,7 @@ function renderNotes(project) {
 function buildCarousel() {
   const template = $('#active-sheet');
   // Bookend copies let the last sheet slide straight into the first sheet.
-  const order = [projects.length - 2, projects.length - 1, ...projects.map((_, index) => index), 0, 1];
+  const order = [projects.length - 3, projects.length - 2, projects.length - 1, ...projects.map((_, index) => index), 0, 1, 2];
   cards = order.map((projectIndex, slot) => {
     const project = projects[projectIndex];
     const number = pad(projectIndex + 1);
@@ -175,6 +177,7 @@ function finishMovement() {
   }
   moving = false;
   track.classList.remove('is-animating');
+  cards.forEach(({item}) => item.classList.remove('is-arriving', 'is-departing'));
   stage.setAttribute('aria-busy', 'false');
   if (queuedSelection) {
     const next = queuedSelection;
@@ -190,17 +193,26 @@ function selectProject(index, options = {}) {
   const next = ((index % projects.length) + projects.length) % projects.length;
   if (moving) { queuedSelection = {index, options}; return; }
   const previous = active;
+  const departing = cards[position];
+  let distance = next - previous;
+  if (distance > projects.length / 2) distance -= projects.length;
+  if (distance < -projects.length / 2) distance += projects.length;
+  if (Math.abs(distance) === projects.length / 2 && options.direction) distance = Math.abs(distance) * options.direction;
   active = next;
-  position = active + firstProjectSlot;
-  if (options.direction === 1 && previous === projects.length - 1 && active === 0) position = projects.length + firstProjectSlot;
-  if (options.direction === -1 && previous === 0 && active === projects.length - 1) position = firstProjectSlot - 1;
+  position = previous + firstProjectSlot + distance;
   const animate = options.animate !== false && previous !== active && !reducedMotion.matches;
   moving = animate;
   track.classList.toggle('is-animating', moving);
   stage.setAttribute('aria-busy', String(moving));
+  stage.style.setProperty('--sheet-direction', distance < 0 ? '-1' : '1');
+  stage.style.setProperty('--ink-entry-offset', distance < 0 ? '-32px' : '32px');
   updateCardStates();
+  if (animate) {
+    departing.item.classList.add('is-departing');
+    cards[position].item.classList.add('is-arriving');
+  }
   placeTrack(options.animate !== false);
-  if (animate) settleTimer = setTimeout(finishMovement, 650);
+  if (animate) settleTimer = setTimeout(finishMovement, sheetMotionDuration + 150);
   else finishMovement();
   const project = projects[active];
   const number = pad(active + 1);
