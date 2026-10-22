@@ -11,8 +11,12 @@ A static electrical engineering portfolio with drafting-paper project sheets, a 
 - `projects-data.js`: shared project content
 - `projects/*/index.html`: standalone project pages, readable without JavaScript
 - `project-page.css`: project-page layout
+- `contact/index.html`: contact page with email, LinkedIn, and GitHub
+- `site-pages.css`: contact-page layout and shared footer
 - `assets/`: project images, self-hosted fonts, and favicon
 - `projects.html` and `contact.html`: compatibility redirects for older links
+
+Projects and About remain on the main page. Contact has its own URL at `/contact/`; old `#contact` links redirect there.
 
 The site needs no build step. Serve the repository root with any static web server, or publish the root through GitHub Pages or Vercel.
 

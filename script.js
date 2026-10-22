@@ -241,10 +241,16 @@ new ResizeObserver(() => {
   finishMovement();
   placeTrack(false);
 }).observe(stage);
+// Keep bookmarked contact-section links working after the move to a page.
+function redirectLegacyContact() {
+  if (location.hash === '#contact') location.replace(new URL('contact/', location.href));
+}
+redirectLegacyContact();
+window.addEventListener('hashchange', redirectLegacyContact);
 const sectionObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
     $$('nav a').forEach(link => link.classList.toggle('active', link.hash === `#${entry.target.id}`));
   });
 }, { rootMargin: '-15% 0px -50% 0px', threshold: 0 });
-['projects', 'about', 'contact'].forEach(id => sectionObserver.observe(document.getElementById(id)));
+['projects', 'about'].forEach(id => sectionObserver.observe(document.getElementById(id)));

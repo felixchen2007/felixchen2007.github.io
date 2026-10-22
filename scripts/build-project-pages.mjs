@@ -30,12 +30,13 @@ for (const [index, project] of projects.entries()) {
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../../style.css?v=20261022-pages">
   <link rel="stylesheet" href="../../project-page.css?v=20261022-pages">
+  <link rel="stylesheet" href="../../site-pages.css?v=20261022-contact">
 </head>
 <body class="project-page">
   <a class="skip-link" href="#project">Skip to project</a>
   <header class="site-header">
     <a class="identity" href="../../" aria-label="Felix Chen, home"><span class="monogram" aria-hidden="true">F<span>C</span></span><span class="wordmark"><strong>Felix Chen</strong><small>Electrical engineering</small></span></a>
-    <nav aria-label="Main navigation"><a class="active" href="../../?project=${project.id}#projects">Projects <span>04</span></a><a href="../../#about">About</a><a href="#contact">Contact <span aria-hidden="true">↗</span></a></nav>
+    <nav aria-label="Main navigation"><a class="active" href="../../?project=${project.id}#projects">Projects <span>04</span></a><a href="../../#about">About</a><a href="../../contact/">Contact <span aria-hidden="true">↗</span></a></nav>
   </header>
   <main id="project" class="project-document">
     <div class="document-breadcrumb"><a href="../../?project=${project.id}#projects">← All projects</a><span>${drawing} / ${escape(project.discipline)}</span></div>
@@ -68,7 +69,7 @@ for (const [index, project] of projects.entries()) {
       <a href="../${next.id}/"><span>Next project →</span><strong>${escape(next.shortTitle)}</strong></a>
     </nav>
   </main>
-  <footer class="content-section contact" id="contact"><div><p class="eyebrow">Have something in mind?</p><a class="contact-title" href="mailto:felixchenn22@gmail.com">Let's connect. <span aria-hidden="true">↗</span></a></div><div class="contact-links"><a href="mailto:felixchenn22@gmail.com">Email <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/felixc2007" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a href="https://github.com/felixchen2007" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a></div><div class="footer-line"><span>© 2026 Felix Chen</span><span>${drawing}</span><a href="../../?project=${project.id}#projects">Back to the drawings ↑</a></div></footer>
+  <footer class="site-footer"><span>© 2026 Felix Chen</span><a href="../../contact/">Get in touch ↗</a></footer>
 </body>
 </html>
 `;
