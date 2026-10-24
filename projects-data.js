@@ -38,7 +38,8 @@ const projects = [
       "Ground and power planes",
       "Test points for board bring-up"
     ],
-    "github": "https://github.com/felixchen2007/buck-boost-converter"
+    "github": "https://github.com/felixchen2007/buck-boost-converter",
+    "model": "assets/models/buck-boost-converter.glb"
   },
   {
     "id": "rainwater",

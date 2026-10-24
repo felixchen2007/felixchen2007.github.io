@@ -29,8 +29,9 @@ for (const [index, project] of projects.entries()) {
   <link rel="canonical" href="https://felixchen2007.github.io/projects/${project.id}/">
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../../style.css?v=20261022-pages">
-  <link rel="stylesheet" href="../../project-page.css?v=20261024-docs">
+  <link rel="stylesheet" href="../../project-page.css?v=20261024-model">
   <link rel="stylesheet" href="../../site-pages.css?v=20261022-contact">
+  ${project.model?'<script type="module" src="../../board-viewer.js?v=20261024-model"></script>':''}
 </head>
 <body class="project-page">
   <a class="skip-link" href="#project">Skip to project</a>
@@ -48,9 +49,9 @@ for (const [index, project] of projects.entries()) {
         <a class="primary-button documentation-link" href="${escape(project.github)}" target="_blank" rel="noreferrer">GitHub documentation <span aria-hidden="true">↗</span></a>
       </header>
       <figure class="case-figure${project.photo ? ' build-photo' : ''}">
-        <div class="figure-register" aria-hidden="true"><span>FC / ${drawing}</span><span>Project reference</span></div>
-        <img src="../../${project.image}" alt="${escape(project.alt)}" fetchpriority="high" width="${project.id === 'rainwater' ? 2518 : project.id === 'arduino-claw' ? 614 : project.id === 'weather-monitor' ? 1520 : 1217}" height="${project.id === 'rainwater' ? 1063 : project.id === 'arduino-claw' ? 683 : project.id === 'weather-monitor' ? 939 : 754}">
-        <figcaption><span>${number} — ${escape(project.caption)}</span><span>Felix Chen</span></figcaption>
+        <div class="figure-register" aria-hidden="true"><span>FC / ${drawing}</span><span>${project.model?'3D board model':'Project reference'}</span></div>
+        ${project.model?`<model-viewer src="../../${project.model}" poster="../../${project.image}" alt="Interactive 3D model of ${escape(project.title)}" camera-controls disable-pan touch-action="pan-y" camera-orbit="35deg 65deg 115%" auto-rotate-delay="1500" rotation-per-second="12deg" shadow-intensity="1" shadow-softness="1" exposure="1" interaction-prompt="none" loading="eager"><img class="viewer-poster" slot="poster" src="../../${project.image}" alt="${escape(project.alt)}"></model-viewer><img class="model-fallback" src="../../${project.image}" alt="${escape(project.alt)}" hidden><div class="model-controls" hidden><button class="text-button model-toggle" type="button">Pause rotation</button><button class="text-button model-reset" type="button">Reset view</button><span>Drag to rotate · Scroll to zoom</span></div>`:`<img src="../../${project.image}" alt="${escape(project.alt)}" fetchpriority="high" width="${project.id === 'rainwater' ? 2518 : project.id === 'arduino-claw' ? 614 : project.id === 'weather-monitor' ? 1520 : project.placeholder ? 900 : 1217}" height="${project.id === 'rainwater' ? 1063 : project.id === 'arduino-claw' ? 683 : project.id === 'weather-monitor' ? 939 : project.placeholder ? 560 : 754}">`}
+        <figcaption><span>${number} — ${project.model?'Interactive PCB assembly':escape(project.caption)}</span><span>Felix Chen</span></figcaption>
       </figure>
       <dl class="project-brief" id="build-notes" aria-label="Project details"><div><dt>${project.placeholder?'Status':'Contribution'}</dt><dd>${escape(project.role)}</dd></div><div><dt>Tools</dt><dd>${escape(project.tools)}</dd></div></dl>
     </article>
@@ -65,7 +66,7 @@ for (const [index, project] of projects.entries()) {
 `;
   const folder = path.join(root, 'projects', project.id);
   fs.mkdirSync(folder, {recursive: true});
-  fs.writeFileSync(path.join(folder, 'index.html'), html);
+  fs.writeFileSync(path.join(folder, 'index.html'), html.replace(/[ \t]+$/gm, ''));
 }
 console.log(`Generated ${projects.length} standalone project pages.`);
 await import('./build-collection.mjs');
