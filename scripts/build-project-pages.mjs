@@ -29,9 +29,9 @@ for (const [index, project] of projects.entries()) {
   <link rel="canonical" href="https://felixchen2007.github.io/projects/${project.id}/">
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../../style.css?v=20261022-pages">
-  <link rel="stylesheet" href="../../project-page.css?v=20261024-model">
+  <link rel="stylesheet" href="../../project-page.css?v=20261024-board-detail">
   <link rel="stylesheet" href="../../site-pages.css?v=20261022-contact">
-  ${project.model?'<script type="module" src="../../board-viewer.js?v=20261024-model"></script>':''}
+  ${project.model?'<script type="module" src="../../board-viewer.js?v=20261024-board-detail"></script>':''}
 </head>
 <body class="project-page">
   <a class="skip-link" href="#project">Skip to project</a>
@@ -48,9 +48,9 @@ for (const [index, project] of projects.entries()) {
         <p class="case-summary">${escape(project.summary)}</p>
         <a class="primary-button documentation-link" href="${escape(project.github)}" target="_blank" rel="noreferrer">GitHub documentation <span aria-hidden="true">↗</span></a>
       </header>
-      <figure class="case-figure${project.photo ? ' build-photo' : ''}">
+      <figure class="case-figure${project.photo ? ' build-photo' : ''}${project.model ? ' board-figure' : ''}">
         <div class="figure-register" aria-hidden="true"><span>FC / ${drawing}</span><span>${project.model?'3D board model':'Project reference'}</span></div>
-        ${project.model?`<model-viewer src="../../${project.model}" poster="../../${project.image}" alt="Interactive 3D model of ${escape(project.title)}" camera-controls disable-pan touch-action="pan-y" camera-orbit="35deg 65deg 115%" auto-rotate-delay="1500" rotation-per-second="12deg" shadow-intensity="1" shadow-softness="1" exposure="1" interaction-prompt="none" loading="eager"><img class="viewer-poster" slot="poster" src="../../${project.image}" alt="${escape(project.alt)}"></model-viewer><img class="model-fallback" src="../../${project.image}" alt="${escape(project.alt)}" hidden><div class="model-controls" hidden><button class="text-button model-toggle" type="button">Pause rotation</button><button class="text-button model-reset" type="button">Reset view</button><span>Drag to rotate · Scroll to zoom</span></div>`:`<img src="../../${project.image}" alt="${escape(project.alt)}" fetchpriority="high" width="${project.id === 'rainwater' ? 2518 : project.id === 'arduino-claw' ? 614 : project.id === 'weather-monitor' ? 1520 : project.placeholder ? 900 : 1217}" height="${project.id === 'rainwater' ? 1063 : project.id === 'arduino-claw' ? 683 : project.id === 'weather-monitor' ? 939 : project.placeholder ? 560 : 754}">`}
+        ${project.model?`<model-viewer src="../../${project.model}?v=20261024-detail" poster="../../${project.image}" alt="Interactive 3D model of ${escape(project.title)}" camera-controls disable-pan touch-action="pan-y" camera-orbit="25deg 40deg 100%" min-camera-orbit="auto 15deg 65%" max-camera-orbit="auto 115deg 230%" auto-rotate-delay="3000" rotation-per-second="6deg" environment-image="neutral" tone-mapping="neutral" shadow-intensity=".65" shadow-softness="1" exposure=".9" interaction-prompt="none" loading="eager"><img class="viewer-poster" slot="poster" src="../../${project.image}" alt="${escape(project.alt)}"></model-viewer><img class="model-fallback" src="../../${project.image}" alt="${escape(project.alt)}" hidden><p class="model-hint" hidden>Drag to rotate · Scroll to zoom</p>`:`<img src="../../${project.image}" alt="${escape(project.alt)}" fetchpriority="high" width="${project.id === 'rainwater' ? 2518 : project.id === 'arduino-claw' ? 614 : project.id === 'weather-monitor' ? 1520 : project.placeholder ? 900 : 1217}" height="${project.id === 'rainwater' ? 1063 : project.id === 'arduino-claw' ? 683 : project.id === 'weather-monitor' ? 939 : project.placeholder ? 560 : 754}">`}
         <figcaption><span>${number} — ${project.model?'Interactive PCB assembly':escape(project.caption)}</span><span>Felix Chen</span></figcaption>
       </figure>
       <dl class="project-brief" id="build-notes" aria-label="Project details"><div><dt>${project.placeholder?'Status':'Contribution'}</dt><dd>${escape(project.role)}</dd></div><div><dt>Tools</dt><dd>${escape(project.tools)}</dd></div></dl>

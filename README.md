@@ -29,7 +29,7 @@ Project pages contain a short description, image, contribution/tools, and a GitH
 - [Arduino Claw](https://github.com/felixchen2007/arduino-claw)
 - [SUBC BMS](https://github.com/felixchen2007/subc-bms)
 
-The Buck-Boost page has a rotating 3D assembly exported from the Altium design. It supports drag, zoom, pause/resume, and reset, respects reduced-motion preferences, and retains an image fallback. Weather Monitor uses its existing image. Google model-viewer 4.4.0 is self-hosted under `assets/vendor/`, with its license included.
+The Buck-Boost page has a rotating 3D assembly exported from the Altium design, with copper, pad, and silkscreen surface detail from the current PCB document. It supports drag and zoom, respects reduced-motion preferences, and retains an image fallback. Weather Monitor uses its existing image. Google model-viewer 4.4.0 is self-hosted under `assets/vendor/`, with its license included.
 
 The site needs no build step. Serve the repository root with any static web server, or publish the root through GitHub Pages or Vercel.
 
