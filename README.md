@@ -21,6 +21,14 @@ Home contains the featured drawing carousel: Weather Monitor, Buck-Boost Convert
 
 Contact has its own URL at `/contact/`; old `#contact` links redirect there. Older carousel links for unfeatured projects open their detail pages.
 
+Project pages contain a short description, image, contribution/tools, and a GitHub documentation link. Longer write-ups live in each project's repository:
+
+- [Weather Monitor PCB](https://github.com/felixchen2007/weather-monitor-pcb)
+- [Buck-Boost Converter](https://github.com/felixchen2007/buck-boost-converter)
+- [Rainwater Harvester](https://github.com/felixchen2007/rainwater-harvester)
+- [Arduino Claw](https://github.com/felixchen2007/arduino-claw)
+- [SUBC BMS](https://github.com/felixchen2007/subc-bms)
+
 The site needs no build step. Serve the repository root with any static web server, or publish the root through GitHub Pages or Vercel.
 
 After editing project content in `projects-data.js`, run `node scripts/build-project-pages.mjs` to regenerate the checked-in detail pages, project collection, and Home thumbnails. The carousel reads the same content file.

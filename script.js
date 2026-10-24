@@ -63,7 +63,7 @@ function buildCarousel() {
     field('block-number').textContent = drawing;
     field('sheet-count').replaceChildren(document.createTextNode('Portfolio collection '), makeTextElement('span', `Sheet ${number} of ${pad(homeProjects.length)}`));
     field('open-project').href = `projects/${project.id}/`;
-    sheet.querySelector('.text-button').href = `projects/${project.id}/#build-notes`;
+    sheet.querySelector('.text-button').href = project.github;
     const preview = makeTextElement('button', '', 'peek-project');
     preview.type = 'button';
     preview.setAttribute('aria-label', `View ${project.title}`);

@@ -29,7 +29,7 @@ for (const [index, project] of projects.entries()) {
   <link rel="canonical" href="https://felixchen2007.github.io/projects/${project.id}/">
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../../style.css?v=20261022-pages">
-  <link rel="stylesheet" href="../../project-page.css?v=20261022-pages">
+  <link rel="stylesheet" href="../../project-page.css?v=20261024-docs">
   <link rel="stylesheet" href="../../site-pages.css?v=20261022-contact">
 </head>
 <body class="project-page">
@@ -45,24 +45,14 @@ for (const [index, project] of projects.entries()) {
         <p class="eyebrow">Project ${number} / ${escape(project.discipline)}</p>
         <h1>${escape(project.title)}</h1>
         <p class="case-summary">${escape(project.summary)}</p>
+        <a class="primary-button documentation-link" href="${escape(project.github)}" target="_blank" rel="noreferrer">GitHub documentation <span aria-hidden="true">↗</span></a>
       </header>
       <figure class="case-figure${project.photo ? ' build-photo' : ''}">
         <div class="figure-register" aria-hidden="true"><span>FC / ${drawing}</span><span>Project reference</span></div>
         <img src="../../${project.image}" alt="${escape(project.alt)}" fetchpriority="high" width="${project.id === 'rainwater' ? 2518 : project.id === 'arduino-claw' ? 614 : project.id === 'weather-monitor' ? 1520 : 1217}" height="${project.id === 'rainwater' ? 1063 : project.id === 'arduino-claw' ? 683 : project.id === 'weather-monitor' ? 939 : 754}">
         <figcaption><span>${number} — ${escape(project.caption)}</span><span>Felix Chen</span></figcaption>
       </figure>
-      <div class="case-layout" id="build-notes">
-        <aside class="case-sidebar" aria-label="Project facts">
-          <p class="eyebrow">At a glance</p>
-          <dl class="case-facts"><div><dt>Contribution</dt><dd>${escape(project.role)}</dd></div><div><dt>Tools</dt><dd>${escape(project.tools)}</dd></div><div><dt>Discipline</dt><dd>${escape(project.discipline)}</dd></div></dl>
-          <p class="eyebrow">Design focus</p>
-          <ul class="case-focus">${project.notes.map(note => `<li>${escape(note)}</li>`).join('')}</ul>
-        </aside>
-        <div class="case-story">
-          <p class="case-intro">${escape(project.intro)}</p>
-          ${project.sections.map(([title, body], sectionIndex) => `<section class="story-section" aria-labelledby="section-${sectionIndex + 1}"><span class="story-number" aria-hidden="true">${pad(sectionIndex + 1)}</span><h2 id="section-${sectionIndex + 1}">${escape(title)}</h2><p>${escape(body)}</p></section>`).join('\n          ')}
-        </div>
-      </div>
+      <dl class="project-brief" id="build-notes" aria-label="Project details"><div><dt>${project.placeholder?'Status':'Contribution'}</dt><dd>${escape(project.role)}</dd></div><div><dt>Tools</dt><dd>${escape(project.tools)}</dd></div></dl>
     </article>
     <nav class="project-neighbors" aria-label="More projects">
       <a href="../${previous.id}/"><span>← Previous project</span><strong>${escape(previous.shortTitle)}</strong></a>
