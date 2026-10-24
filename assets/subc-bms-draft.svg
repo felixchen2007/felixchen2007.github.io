@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">SUBC BMS — design in progress</title><desc id="desc">A temporary drawing placeholder, not a representation of the finished board.</desc>
+  <g fill="none" stroke="#8b8e80" stroke-width="2"><rect x="130" y="92" width="640" height="376" rx="14" stroke-dasharray="12 8"/><circle cx="154" cy="116" r="8"/><circle cx="746" cy="116" r="8"/><circle cx="154" cy="444" r="8"/><circle cx="746" cy="444" r="8"/><path d="M102 280h30m636 0h30M450 64v30m0 372v30"/></g>
+  <g text-anchor="middle" fill="#172020" font-family="Arial,sans-serif"><text x="450" y="261" font-size="68" font-weight="700" letter-spacing="-2">SUBC BMS</text><text x="450" y="310" font-size="19" letter-spacing="4">BATTERY MANAGEMENT SYSTEM</text></g>
+  <rect x="322" y="346" width="256" height="36" fill="#ec720c15" stroke="#b44b00"/><text x="450" y="370" fill="#b44b00" font-family="monospace" font-size="14" text-anchor="middle" letter-spacing="2">DESIGN IN PROGRESS</text>
+</svg>

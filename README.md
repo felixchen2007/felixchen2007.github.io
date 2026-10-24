@@ -5,6 +5,7 @@ A static electrical engineering portfolio with drafting-paper project sheets, a 
 ## Website files
 
 - `index.html`: portfolio page and project-sheet template
+- `projects/index.html`: complete project collection
 - `style.css`: typography, drafting-paper design, and responsive layout
 - `carousel.css`: carousel layout and motion
 - `script.js`: carousel navigation and motion
@@ -16,11 +17,13 @@ A static electrical engineering portfolio with drafting-paper project sheets, a 
 - `assets/`: project images, self-hosted fonts, and favicon
 - `projects.html` and `contact.html`: compatibility redirects for older links
 
-Projects and About remain on the main page. Contact has its own URL at `/contact/`; old `#contact` links redirect there.
+Home contains the featured drawing carousel: Weather Monitor, Buck-Boost Converter, and the temporary SUBC BMS sheet. All projects (`/projects/`) includes these plus Rainwater Harvester and Arduino Claw. The SUBC BMS entry is explicitly marked as in progress and uses a drawing placeholder rather than a finished-board model. Set `home: false` in the project data to keep an entry only in All projects.
+
+Contact has its own URL at `/contact/`; old `#contact` links redirect there. Older carousel links for unfeatured projects open their detail pages.
 
 The site needs no build step. Serve the repository root with any static web server, or publish the root through GitHub Pages or Vercel.
 
-After editing project content in `projects-data.js`, run `node scripts/build-project-pages.mjs` to regenerate the checked-in project pages. The carousel reads the same content file.
+After editing project content in `projects-data.js`, run `node scripts/build-project-pages.mjs` to regenerate the checked-in detail pages, project collection, and Home thumbnails. The carousel reads the same content file.
 
 ## Previous website
 

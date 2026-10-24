@@ -1,4 +1,5 @@
 /* The viewport is a window onto a continuous row of complete drawings. */
+.project-tabs{grid-template-columns:repeat(3,minmax(0,1fr))}
 .drawing-stage {
   --card-width: min(70vw, 1120px);
   --sheet-gap: 26px;
@@ -135,6 +136,8 @@
   .drawing-stage .project-actions { flex-wrap: wrap; gap: 8px 15px; }
 }
 @media(max-width:820px) {
+  .project-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .project-tab:last-child{grid-column:1/-1}
   .drawing-stage { --card-width: 80vw; --sheet-gap: 16px; padding-top: 9px; }
   .collection-heading,.carousel-meta { max-width: 80vw; }
   .carousel-item .drawing-sheet { height: 750px; }

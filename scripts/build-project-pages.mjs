@@ -36,10 +36,10 @@ for (const [index, project] of projects.entries()) {
   <a class="skip-link" href="#project">Skip to project</a>
   <header class="site-header">
     <a class="identity" href="../../" aria-label="Felix Chen, home"><span class="monogram" aria-hidden="true">F<span>C</span></span><span class="wordmark"><strong>Felix Chen</strong><small>Electrical engineering</small></span></a>
-    <nav aria-label="Main navigation"><a class="active" href="../../?project=${project.id}#projects">Projects <span>04</span></a><a href="../../#about">About</a><a href="../../contact/">Contact <span aria-hidden="true">↗</span></a></nav>
+    <nav aria-label="Main navigation"><a href="${project.home === false ? '../../' : '../../?project=' + project.id + '#projects'}">Home</a><a href="../" class="active" aria-current="location">All projects</a><a href="../../contact/">Contact <span aria-hidden="true">↗</span></a></nav>
   </header>
   <main id="project" class="project-document">
-    <div class="document-breadcrumb"><a href="../../?project=${project.id}#projects">← All projects</a><span>${drawing} / ${escape(project.discipline)}</span></div>
+    <div class="document-breadcrumb"><a href="../">← All projects</a><span>${drawing} / ${escape(project.discipline)}</span></div>
     <article>
       <header class="case-heading">
         <p class="eyebrow">Project ${number} / ${escape(project.discipline)}</p>
@@ -78,3 +78,4 @@ for (const [index, project] of projects.entries()) {
   fs.writeFileSync(path.join(folder, 'index.html'), html);
 }
 console.log(`Generated ${projects.length} standalone project pages.`);
+await import('./build-collection.mjs');

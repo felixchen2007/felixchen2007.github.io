@@ -1,4 +1,5 @@
 'use strict';
+const homeProjects = projects.filter(project => project.home !== false);
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
 const pad = (number) => String(number).padStart(2, '0');
@@ -27,11 +28,11 @@ function makeTextElement(tag, text, className) {
 function buildCarousel() {
   const template = $('#active-sheet');
   // Bookend copies let the last sheet slide straight into the first sheet.
-  const order = [projects.length - 3, projects.length - 2, projects.length - 1, ...projects.map((_, index) => index), 0, 1, 2];
+  const order = [homeProjects.length - 3, homeProjects.length - 2, homeProjects.length - 1, ...homeProjects.map((_, index) => index), 0, 1, 2];
   cards = order.map((projectIndex, slot) => {
-    const project = projects[projectIndex];
+    const project = homeProjects[projectIndex];
     const number = pad(projectIndex + 1);
-    const drawing = `PRJ–00${projectIndex + 1}`;
+    const drawing = `PRJ–${String(projects.indexOf(project) + 1).padStart(3, '0')}`;
     const item = makeTextElement('div', '', 'carousel-item');
     item.dataset.project = projectIndex;
     const sheet = template.cloneNode(true);
@@ -48,18 +49,19 @@ function buildCarousel() {
     field('drawing-no').textContent = drawing;
     field('project-discipline').textContent = project.discipline;
     field('project-role').replaceChildren(makeTextElement('span', '', 'status-dot'), document.createTextNode(project.role));
+    field('project-role').closest('div').querySelector('dt').textContent = project.placeholder ? 'Status' : 'Contribution';
     field('project-tools').textContent = project.tools;
     field('register-number').textContent = number;
     field('project-image').src = project.image;
     field('project-image').alt = project.alt;
     field('project-image').draggable = false;
-    field('project-figure').classList.toggle('photo', !!project.photo);
+    field('project-figure').classList.toggle('photo', !!project.photo || !!project.placeholder);
     field('figure-caption').textContent = `${number} — ${project.caption}`;
     field('detail-image').src = project.image;
     field('design-notes').replaceChildren(...project.notes.map(note => makeTextElement('li', note)));
     field('block-title').textContent = project.title;
     field('block-number').textContent = drawing;
-    field('sheet-count').replaceChildren(document.createTextNode('Portfolio collection '), makeTextElement('span', `Sheet ${number} of 04`));
+    field('sheet-count').replaceChildren(document.createTextNode('Portfolio collection '), makeTextElement('span', `Sheet ${number} of ${pad(homeProjects.length)}`));
     field('open-project').href = `projects/${project.id}/`;
     sheet.querySelector('.text-button').href = `projects/${project.id}/#build-notes`;
     const preview = makeTextElement('button', '', 'peek-project');
@@ -103,7 +105,7 @@ function updateCardStates() {
 
 function finishMovement() {
   clearTimeout(settleTimer);
-  if (position < firstProjectSlot || position >= projects.length + firstProjectSlot) {
+  if (position < firstProjectSlot || position >= homeProjects.length + firstProjectSlot) {
     position = active + firstProjectSlot;
     stage.classList.add('is-resetting');
     updateCardStates();
@@ -126,14 +128,14 @@ track.addEventListener('transitionend', event => {
 });
 
 function selectProject(index, options = {}) {
-  const next = ((index % projects.length) + projects.length) % projects.length;
+  const next = ((index % homeProjects.length) + homeProjects.length) % homeProjects.length;
   if (moving) { queuedSelection = {index, options}; return; }
   const previous = active;
   const departing = cards[position];
   let distance = next - previous;
-  if (distance > projects.length / 2) distance -= projects.length;
-  if (distance < -projects.length / 2) distance += projects.length;
-  if (Math.abs(distance) === projects.length / 2 && options.direction) distance = Math.abs(distance) * options.direction;
+  if (distance > homeProjects.length / 2) distance -= homeProjects.length;
+  if (distance < -homeProjects.length / 2) distance += homeProjects.length;
+  if (Math.abs(distance) === homeProjects.length / 2 && options.direction) distance = Math.abs(distance) * options.direction;
   active = next;
   position = previous + firstProjectSlot + distance;
   const animate = options.animate !== false && previous !== active && !reducedMotion.matches;
@@ -150,16 +152,16 @@ function selectProject(index, options = {}) {
   placeTrack(options.animate !== false);
   if (animate) settleTimer = setTimeout(finishMovement, sheetMotionDuration + 150);
   else finishMovement();
-  const project = projects[active];
+  const project = homeProjects[active];
   const number = pad(active + 1);
-  $('#page-count').replaceChildren(document.createTextNode(number + ' '), makeTextElement('em', '/ 04'));
+  $('#page-count').replaceChildren(document.createTextNode(number + ' '), makeTextElement('em', `/ ${pad(homeProjects.length)}`));
   $$('.page-marks i').forEach((mark, i) => mark.classList.toggle('selected', i === active));
   $$('.project-tab').forEach((tab, i) => {
     tab.classList.toggle('selected', i === active);
     tab.setAttribute('aria-selected', String(i === active));
     tab.tabIndex = i === active ? 0 : -1;
   });
-  if (options.announce !== false) $('#project-announcement').textContent = `Project ${number} of 04: ${project.title}`;
+  if (options.announce !== false) $('#project-announcement').textContent = `Project ${number} of ${pad(homeProjects.length)}: ${project.title}`;
   if (options.focusTab) $(`#project-tab-${active}`).focus({ preventScroll: true });
   if (options.history !== false) {
     const url = new URL(window.location.href);
@@ -186,7 +188,7 @@ document.addEventListener('keydown', event => {
     selectProject(active + direction, {direction, focusTab: !!event.target.closest('.project-tabs')});
   } else if (event.target.closest('.project-tabs') && (event.key === 'Home' || event.key === 'End')) {
     event.preventDefault();
-    selectProject(event.key === 'Home' ? 0 : projects.length - 1, {focusTab: true});
+    selectProject(event.key === 'Home' ? 0 : homeProjects.length - 1, {focusTab: true});
   }
 });
 let gesture = null;
@@ -232,7 +234,9 @@ stage.addEventListener('click', event => {
 }, true);
 buildCarousel();
 const initialId = new URLSearchParams(location.search).get('project');
-const initialIndex = projects.findIndex(project => project.id === initialId);
+const initialIndex = homeProjects.findIndex(project => project.id === initialId);
+const unfeaturedProject = projects.find(project => project.id === initialId && project.home === false);
+if (unfeaturedProject) location.replace(`projects/${unfeaturedProject.id}/`);
 selectProject(initialIndex >= 0 ? initialIndex : 0, { announce: false, history: false, animate: false });
 new ResizeObserver(() => {
   dragOffset = 0;
@@ -247,10 +251,3 @@ function redirectLegacyContact() {
 }
 redirectLegacyContact();
 window.addEventListener('hashchange', redirectLegacyContact);
-const sectionObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    $$('nav a').forEach(link => link.classList.toggle('active', link.hash === `#${entry.target.id}`));
-  });
-}, { rootMargin: '-15% 0px -50% 0px', threshold: 0 });
-['projects', 'about'].forEach(id => sectionObserver.observe(document.getElementById(id)));

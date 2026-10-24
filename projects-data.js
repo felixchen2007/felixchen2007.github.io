@@ -25,7 +25,7 @@ const projects = [
     ]
   },
   {
-    id: 'rainwater', title: 'Rainwater Harvester', heading: 'Rainwater<br>Harvester', shortTitle: 'Rainwater Harvester', discipline: 'Systems modeling', role: 'Six-person team', tools: 'Excel / Simulation / Analysis', photo: true,
+    id: 'rainwater', home: false, title: 'Rainwater Harvester', heading: 'Rainwater<br>Harvester', shortTitle: 'Rainwater Harvester', discipline: 'Systems modeling', role: 'Six-person team', tools: 'Excel / Simulation / Analysis', photo: true,
     image: 'assets/rainwater-1.jpg', alt: 'Rainwater harvesting project design and analysis', caption: 'System design / project documentation',
     summary: 'A rainwater collection and treatment system for a two-person, off-grid household in remote British Columbia. Designed around the whole system.',
     intro: 'Balancing water, energy, and the realities of an off-grid household.',
@@ -37,7 +37,7 @@ const projects = [
     ]
   },
   {
-    id: 'arduino-claw', title: 'Arduino Claw', heading: 'Arduino<br>Claw', shortTitle: 'Arduino Claw', discipline: 'Electromechanical design', role: 'Five-person team', tools: 'Arduino / Sensors / Control', photo: true,
+    id: 'arduino-claw', home: false, title: 'Arduino Claw', heading: 'Arduino<br>Claw', shortTitle: 'Arduino Claw', discipline: 'Electromechanical design', role: 'Five-person team', tools: 'Arduino / Sensors / Control', photo: true,
     image: 'assets/arduino-claw-1.jpg', alt: 'The Arduino claw prototype with its mechanical structure and electronics', caption: 'Working prototype / build photograph',
     summary: 'Motors, sensors, code, and a little mechanical persistence. A team-built Arduino claw designed to handle three rounds of a studio competition.',
     intro: 'Bringing mechanical construction and embedded control together.',
@@ -46,6 +46,16 @@ const projects = [
       ['Building an integrated prototype', 'In a five-person team, I helped build and program an Arduino claw combining motors, sensors, and mechanical parts. My contributions included sensor-reading and control logic, assembly, and wiring.'],
       ['Testing under real constraints', 'We tested and debugged the integrated system for tasks involving object handling, timed foam-block collection, and cooperative lifting. The competition required the mechanism and control logic to work reliably together.'],
       ['Putting it to the test', 'The team achieved top studio scores across the three-round competition. The project was an exercise in iteration, hands-on integration, and coordinating a build as a team.']
+    ]
+  },
+  {
+    id: 'subc-bms', title: 'SUBC BMS', heading: 'SUBC<br>BMS', shortTitle: 'SUBC BMS', discipline: 'Battery management', role: 'In progress', tools: 'To be documented', placeholder: true,
+    image: 'assets/subc-bms-draft.svg', alt: 'SUBC BMS temporary drawing — design in progress', caption: 'Temporary drawing / design in progress',
+    summary: 'An in-progress battery management system project for SUBC. Design details and validation results will be added as the work develops.',
+    intro: 'Battery management for SUBC. Work in progress.',
+    notes: ['Scope in development', 'Design in progress', 'Validation pending', 'Documentation to follow'],
+    sections: [
+      ['Project status', 'The SUBC battery management system is in progress. This is a temporary project entry; design details and results will be added as the project develops.']
     ]
   }
 ];

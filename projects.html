@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0;url=./#projects">
+  <meta http-equiv="refresh" content="0;url=./projects/">
   <title>Projects — Felix Chen</title>
   <script>
     const project = location.hash.slice(1);
-    const knownProjects = new Set(['weather-monitor', 'buck-boost-converter', 'rainwater', 'arduino-claw']);
-    location.replace(knownProjects.has(project) ? './projects/' + encodeURIComponent(project) + '/' : './#projects');
+    const knownProjects = new Set(['weather-monitor', 'buck-boost-converter', 'rainwater', 'arduino-claw', 'subc-bms']);
+    location.replace(knownProjects.has(project) ? './projects/' + encodeURIComponent(project) + '/' : './projects/');
   </script>
 </head>
-<body><p><a href="./#projects">Explore Felix Chen's engineering projects.</a></p></body>
+<body><p><a href="./projects/">Explore Felix Chen's engineering projects.</a></p></body>
 </html>
