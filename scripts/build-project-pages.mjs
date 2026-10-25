@@ -48,11 +48,16 @@ for (const [index, project] of projects.entries()) {
         <p class="case-summary">${escape(project.summary)}</p>
         <a class="primary-button documentation-link" href="${escape(project.github)}" target="_blank" rel="noreferrer">GitHub documentation <span aria-hidden="true">↗</span></a>
       </header>
-      <figure class="case-figure${project.photo ? ' build-photo' : ''}${project.model ? ' board-figure' : ''}">
-        <div class="figure-register" aria-hidden="true"><span>FC / ${drawing}</span><span>${project.model?'3D board model':'Project reference'}</span></div>
-        ${project.model?`<model-viewer src="../../${project.model}?v=20261024-detail" poster="../../${project.image}" alt="Interactive 3D model of ${escape(project.title)}" camera-controls disable-pan touch-action="pan-y" camera-orbit="25deg 40deg 100%" min-camera-orbit="auto 15deg 65%" max-camera-orbit="auto 115deg 230%" auto-rotate-delay="3000" rotation-per-second="6deg" environment-image="neutral" tone-mapping="neutral" shadow-intensity=".65" shadow-softness="1" exposure=".9" interaction-prompt="none" loading="eager"><img class="viewer-poster" slot="poster" src="../../${project.image}" alt="${escape(project.alt)}"></model-viewer><img class="model-fallback" src="../../${project.image}" alt="${escape(project.alt)}" hidden><p class="model-hint" hidden>Drag to rotate · Scroll to zoom</p>`:`<img src="../../${project.image}" alt="${escape(project.alt)}" fetchpriority="high" width="${project.id === 'rainwater' ? 2518 : project.id === 'arduino-claw' ? 614 : project.id === 'weather-monitor' ? 1520 : project.placeholder ? 900 : 1217}" height="${project.id === 'rainwater' ? 1063 : project.id === 'arduino-claw' ? 683 : project.id === 'weather-monitor' ? 939 : project.placeholder ? 560 : 754}">`}
-        <figcaption><span>${number} — ${project.model?'Interactive PCB assembly':escape(project.caption)}</span><span>Felix Chen</span></figcaption>
-      </figure>
+      <figure class="case-figure${project.photo ? ' build-photo' : ''}">
+        <div class="figure-register" aria-hidden="true"><span>FC / ${drawing}</span><span>${project.model?'Original board image':'Project reference'}</span></div>
+        <img src="../../${project.image}" alt="${escape(project.alt)}" fetchpriority="high" width="${project.id === 'rainwater' ? 2518 : project.id === 'arduino-claw' ? 614 : project.id === 'weather-monitor' ? 1520 : project.placeholder ? 900 : 1217}" height="${project.id === 'rainwater' ? 1063 : project.id === 'arduino-claw' ? 683 : project.id === 'weather-monitor' ? 939 : project.placeholder ? 560 : 754}">
+        <figcaption><span>${number} — ${escape(project.caption)}</span><span>Felix Chen</span></figcaption>
+      </figure>${project.model?`
+      <figure class="case-figure board-figure">
+        <div class="figure-register" aria-hidden="true"><span>FC / ${drawing}</span><span>3D board model</span></div>
+        <model-viewer src="../../${project.model}?v=20261024-detail" poster="../../${project.image}" alt="Interactive 3D model of ${escape(project.title)}" camera-controls disable-pan touch-action="pan-y" camera-orbit="25deg 40deg 100%" min-camera-orbit="auto 15deg 65%" max-camera-orbit="auto 115deg 230%" auto-rotate-delay="3000" rotation-per-second="6deg" environment-image="neutral" tone-mapping="neutral" shadow-intensity=".65" shadow-softness="1" exposure=".9" interaction-prompt="none" loading="eager"><img class="viewer-poster" slot="poster" src="../../${project.image}" alt="${escape(project.alt)}"></model-viewer><img class="model-fallback" src="../../${project.image}" alt="${escape(project.alt)}" hidden><p class="model-hint" hidden>Drag to rotate · Scroll to zoom</p>
+        <figcaption><span>${number} — Interactive PCB assembly</span><span>Felix Chen</span></figcaption>
+      </figure>`:''}
       <dl class="project-brief" id="build-notes" aria-label="Project details"><div><dt>${project.placeholder?'Status':'Contribution'}</dt><dd>${escape(project.role)}</dd></div><div><dt>Tools</dt><dd>${escape(project.tools)}</dd></div></dl>
     </article>
     <nav class="project-neighbors" aria-label="More projects">
