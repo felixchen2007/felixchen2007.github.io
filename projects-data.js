@@ -28,14 +28,14 @@ const projects = [
     "shortTitle": "Buck-Boost Converter",
     "discipline": "Power electronics",
     "role": "Independent project",
-    "tools": "Altium / TPS63000 / Simulink",
+    "tools": "Altium / TPS63070 / Simulink",
     "image": "assets/buck-boost-converter-pcb.png",
     "alt": "3D render of Felix Chen's four-layer adjustable buck-boost converter PCB",
     "caption": "Four-layer PCB / isometric view",
-    "summary": "A four-layer adjustable buck-boost converter built around the TI TPS63000.",
-    "overview": "A four-layer power supply board that steps voltage up or down. I designed and assembled it to provide selectable output voltages.",
+    "summary": "A four-layer adjustable buck-boost converter built around the TI TPS63070.",
+    "overview": "I designed and assembled this four-layer buck-boost board for 2–16 V input. It provides selectable 3.3 V or 9 V output.",
     "notes": [
-      "TI TPS63000 converter",
+      "TI TPS63070 converter",
       "Adjustable voltage selection",
       "Ground and power planes",
       "Test points for board bring-up"

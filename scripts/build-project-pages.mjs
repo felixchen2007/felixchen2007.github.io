@@ -47,7 +47,7 @@ for (const [index, project] of projects.entries()) {
         <p class="eyebrow">Project ${number} / ${escape(project.discipline)}</p>
         <h1>${escape(project.title)}</h1>
         <p class="case-summary">${escape(overview)}</p>
-        <a class="primary-button documentation-link" href="${escape(project.github)}" target="_blank" rel="noreferrer">GitHub documentation <span aria-hidden="true">↗</span></a>
+        <a class="primary-button documentation-link" href="${escape(project.github)}" target="_blank" rel="noreferrer">Full documentation on GitHub <span aria-hidden="true">↗</span></a>
       </header>
       <figure class="case-figure${project.photo ? ' build-photo' : ''}">
         <div class="figure-register" aria-hidden="true"><span>FC / ${drawing}</span>${project.model?'':'<span>Project reference</span>'}</div>
