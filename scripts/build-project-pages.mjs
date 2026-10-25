@@ -13,15 +13,16 @@ for (const [index, project] of projects.entries()) {
   const drawing = `PRJ–00${index + 1}`;
   const previous = projects[(index + projects.length - 1) % projects.length];
   const next = projects[(index + 1) % projects.length];
+  const overview = project.overview || project.summary;
   const html = `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f4f0e5">
-  <meta name="description" content="${escape(project.summary)}">
+  <meta name="description" content="${escape(overview)}">
   <meta property="og:title" content="${escape(project.title)} — Felix Chen">
-  <meta property="og:description" content="${escape(project.summary)}">
+  <meta property="og:description" content="${escape(overview)}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://felixchen2007.github.io/projects/${project.id}/">
   <meta property="og:image" content="https://felixchen2007.github.io/${project.image}">
@@ -45,11 +46,11 @@ for (const [index, project] of projects.entries()) {
       <header class="case-heading">
         <p class="eyebrow">Project ${number} / ${escape(project.discipline)}</p>
         <h1>${escape(project.title)}</h1>
-        <p class="case-summary">${escape(project.summary)}</p>
+        <p class="case-summary">${escape(overview)}</p>
         <a class="primary-button documentation-link" href="${escape(project.github)}" target="_blank" rel="noreferrer">GitHub documentation <span aria-hidden="true">↗</span></a>
       </header>
       <figure class="case-figure${project.photo ? ' build-photo' : ''}">
-        <div class="figure-register" aria-hidden="true"><span>FC / ${drawing}</span><span>${project.model?'Original board image':'Project reference'}</span></div>
+        <div class="figure-register" aria-hidden="true"><span>FC / ${drawing}</span>${project.model?'':'<span>Project reference</span>'}</div>
         <img src="../../${project.image}" alt="${escape(project.alt)}" fetchpriority="high" width="${project.id === 'rainwater' ? 2518 : project.id === 'arduino-claw' ? 614 : project.id === 'weather-monitor' ? 1520 : project.placeholder ? 900 : 1217}" height="${project.id === 'rainwater' ? 1063 : project.id === 'arduino-claw' ? 683 : project.id === 'weather-monitor' ? 939 : project.placeholder ? 560 : 754}">
         <figcaption><span>${number} — ${escape(project.caption)}</span><span>Felix Chen</span></figcaption>
       </figure>${project.model?`

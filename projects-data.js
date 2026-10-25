@@ -12,6 +12,7 @@ const projects = [
     "alt": "3D render of Felix Chen's ESP32 weather monitor PCB",
     "caption": "PCB assembly / isometric view",
     "summary": "An ESP32 weather monitor with temperature, humidity, and solar power readings.",
+    "overview": "A custom ESP32 weather monitor for temperature, humidity, and solar power. It shows live readings on a display and web interface.",
     "notes": [
       "ESP32 microcontroller",
       "Temperature & humidity sensing",
@@ -32,6 +33,7 @@ const projects = [
     "alt": "3D render of Felix Chen's four-layer adjustable buck-boost converter PCB",
     "caption": "Four-layer PCB / isometric view",
     "summary": "A four-layer adjustable buck-boost converter built around the TI TPS63000.",
+    "overview": "A four-layer power supply board that steps voltage up or down. I designed and assembled it to provide selectable output voltages.",
     "notes": [
       "TI TPS63000 converter",
       "Adjustable voltage selection",
@@ -55,6 +57,7 @@ const projects = [
     "alt": "Rainwater harvesting project design and analysis",
     "caption": "System design / project documentation",
     "summary": "An Excel model for an off-grid rainwater collection and treatment system.",
+    "overview": "An Excel model of rainwater collection and treatment for an off-grid household. It compares storage, pumping, and energy needs.",
     "notes": [
       "Rainfall and demand modeling",
       "Tank storage and collection",
@@ -77,6 +80,7 @@ const projects = [
     "alt": "The Arduino claw prototype with its mechanical structure and electronics",
     "caption": "Working prototype / build photograph",
     "summary": "A team-built Arduino claw combining sensors, motors, and control code.",
+    "overview": "An Arduino-controlled claw built to pick up and move objects. Our team combined motors, sensors, and control code for a studio competition.",
     "notes": [
       "Arduino-based control",
       "Motor and sensor integration",
@@ -98,6 +102,7 @@ const projects = [
     "alt": "SUBC BMS temporary drawing — design in progress",
     "caption": "Temporary drawing / design in progress",
     "summary": "A SUBC battery management system project. In progress.",
+    "overview": "A battery management system project for SUBC, currently in development. Design details and results will follow as the project progresses.",
     "notes": [
       "Scope in development",
       "Design in progress",
