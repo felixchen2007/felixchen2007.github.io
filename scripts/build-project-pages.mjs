@@ -51,8 +51,8 @@ for (const [index, project] of projects.entries()) {
       </header>
       <figure class="case-figure${project.photo ? ' build-photo' : ''}">
         <div class="figure-register" aria-hidden="true"><span>FC / ${drawing}</span>${project.model?'':'<span>Project reference</span>'}</div>
-        <img src="../../${project.image}" alt="${escape(project.alt)}" fetchpriority="high" width="${project.id === 'rainwater' ? 2518 : project.id === 'arduino-claw' ? 614 : project.id === 'weather-monitor' ? 1520 : project.placeholder ? 900 : 1217}" height="${project.id === 'rainwater' ? 1063 : project.id === 'arduino-claw' ? 683 : project.id === 'weather-monitor' ? 939 : project.placeholder ? 560 : 754}">
-        <figcaption><span>${number} — ${escape(project.caption)}</span><span>Felix Chen</span></figcaption>
+        <img src="../../${project.image}" alt="${escape(project.alt)}" fetchpriority="high" width="${project.imageWidth || (project.id === 'rainwater' ? 2518 : project.id === 'arduino-claw' ? 614 : project.id === 'weather-monitor' ? 1520 : project.placeholder ? 900 : 1217)}" height="${project.imageHeight || (project.id === 'rainwater' ? 1063 : project.id === 'arduino-claw' ? 683 : project.id === 'weather-monitor' ? 939 : project.placeholder ? 560 : 754)}">
+        <figcaption><span>${number} — ${escape(project.caption)}</span><span>${escape(project.imageCredit || 'Felix Chen')}</span></figcaption>
       </figure>${project.model?`
       <figure class="case-figure board-figure">
         <div class="figure-register" aria-hidden="true"><span>FC / ${drawing}</span><span>3D board model</span></div>

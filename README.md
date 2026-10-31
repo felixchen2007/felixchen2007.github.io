@@ -17,7 +17,7 @@ A static electrical engineering portfolio with drafting-paper project sheets, a 
 - `assets/`: project images, self-hosted fonts, and favicon
 - `projects.html` and `contact.html`: compatibility redirects for older links
 
-Home contains the featured drawing carousel: Weather Monitor, Buck-Boost Converter, and the temporary SUBC BMS sheet. All projects (`/projects/`) includes these plus Rainwater Harvester and Arduino Claw. The SUBC BMS entry is explicitly marked as in progress and uses a drawing placeholder rather than a finished-board model. Set `home: false` in the project data to keep an entry only in All projects.
+Home contains the featured drawing carousel: Weather Monitor, Buck-Boost Converter, and SUBC BMS. All projects (`/projects/`) includes these plus Rainwater Harvester and Arduino Claw. The SUBC BMS entry is marked as in progress and shows the previous SUBC team's 2025 board as a credited reference image. Set `home: false` in the project data to keep an entry only in All projects.
 
 Contact has its own URL at `/contact/`; old `#contact` links redirect there. Older carousel links for unfeatured projects open their detail pages.
 
